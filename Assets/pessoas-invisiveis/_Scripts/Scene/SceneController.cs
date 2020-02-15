@@ -70,6 +70,8 @@ namespace PeixeAbissal.Scene {
             background.DOAnchorMin (onScreenAnchor.Item1, duration);
             background.DOAnchorMax (onScreenAnchor.Item2, duration)
                 .OnComplete (() => callback?.Invoke ());
+
+            background.DOScaleZ(0, 1);
         }
 
         private void Exit (Side exitSide, float duration, Action callback) {

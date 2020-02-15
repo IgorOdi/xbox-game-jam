@@ -1,0 +1,20 @@
+{
+    "name": "PeixeAbissal.Scene",
+    "references": [
+        "GUID:63a288e856b9fe64dbbd9b78e6d25bb3",
+        "GUID:304ed277b41bc2641a575af296125d02",
+        "GUID:2149755c5b08afc42877d3581b18ccb9"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "DOTweenEditor.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}
