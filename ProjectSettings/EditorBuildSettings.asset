@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/Bootstrapper.unity
+    guid: 18afbeed1f58dd640a969499a6ab5d52
+  - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/BaseScene.unity
+    guid: 1a7ad08758099144989f0dd714d2bfb0
+  - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/Escova.unity
+    guid: 8f06b06f1d416e54990da65e0caba3d1
   m_configObjects: {}

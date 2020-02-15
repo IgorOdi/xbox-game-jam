@@ -14,34 +14,16 @@ namespace PeixeAbissal.Scene {
         private RectTransform background;
 
         private (Vector2, Vector2) onScreenAnchor = (new Vector2 (0, 0), new Vector2 (1, 1));
-        private (Vector2, Vector2) leftAnchor = (new Vector2(-1, 0), new Vector2(0, 1));
-        private (Vector2, Vector2) rightAnchor = (new Vector2(1, 0), new Vector2(2, 1));
-        private (Vector2, Vector2) topAnchor = (new Vector2(0, 1), new Vector2(1, 2));
-        private (Vector2, Vector2) bottomAnchor = (new Vector2(0, -1), new Vector2(1, 0));
+        private (Vector2, Vector2) leftAnchor = (new Vector2 (-1, 0), new Vector2 (0, 1));
+        private (Vector2, Vector2) rightAnchor = (new Vector2 (1, 0), new Vector2 (2, 1));
+        private (Vector2, Vector2) topAnchor = (new Vector2 (0, 1), new Vector2 (1, 2));
+        private (Vector2, Vector2) bottomAnchor = (new Vector2 (0, -1), new Vector2 (1, 0));
 
-        public Side enterSide;
-        public Side exitSide;
+        internal virtual void StartScene () { }
 
-        void Awake () {
+        internal void Enter (Side enterSide, float duration, Action callback) {
 
-            DOTween.defaultEaseType = Ease.Linear;
             background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
-        }
-
-        [ContextMenu ("Enter")]
-        public void Enter () {
-
-            Enter (enterSide, 1, null);
-        }
-
-        [ContextMenu ("Exit")]
-        public void Exit () {
-
-            Exit (exitSide, 1, null);
-        }
-
-        private void Enter (Side enterSide, float duration, Action callback) {
-
             if (enterSide.Equals (Side.Left)) {
 
                 background.anchorMin = leftAnchor.Item1;
@@ -52,8 +34,8 @@ namespace PeixeAbissal.Scene {
                 background.anchorMax = rightAnchor.Item2;
             } else if (enterSide.Equals (Side.Top)) {
 
-                background.anchorMin = rightAnchor.Item1;
-                background.anchorMax = rightAnchor.Item2;
+                background.anchorMin = topAnchor.Item1;
+                background.anchorMax = topAnchor.Item2;
             } else if (enterSide.Equals (Side.Bottom)) {
 
                 background.anchorMin = bottomAnchor.Item1;
@@ -69,14 +51,17 @@ namespace PeixeAbissal.Scene {
 
             background.DOAnchorMin (onScreenAnchor.Item1, duration);
             background.DOAnchorMax (onScreenAnchor.Item2, duration)
-                .OnComplete (() => callback?.Invoke ());
+                .OnComplete (() => {
 
-            background.DOScaleZ(0, 1);
+                    print("Completou");
+                    callback?.Invoke ();
+                });
         }
 
-        private void Exit (Side exitSide, float duration, Action callback) {
+        internal void Exit (Side exitSide, float duration, Action callback) {
 
-            SetOnScreen ();
+            background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
+            SetOnScreen ();            
             Vector2 min = Vector2.zero;
             Vector2 max = Vector2.zero;
             if (exitSide.Equals (Side.Left)) {
@@ -98,7 +83,7 @@ namespace PeixeAbissal.Scene {
             } else if (exitSide.Equals (Side.Fade)) {
 
                 canvas.GetComponent<CanvasGroup> ().DOFade (0, duration)
-                    .From(1)
+                    .From (1)
                     .OnComplete (() => callback?.Invoke ());
                 return;
             }

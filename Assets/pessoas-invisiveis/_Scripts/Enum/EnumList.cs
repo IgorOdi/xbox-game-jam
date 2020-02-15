@@ -12,4 +12,11 @@ namespace PeixeAbissal.Enum {
         Bottom,
         Fade
     }
+
+    public enum InputType {
+
+        Press,
+        Hold,
+        Release
+    }
 }
