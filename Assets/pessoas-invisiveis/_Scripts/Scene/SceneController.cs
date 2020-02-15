@@ -10,7 +10,7 @@ namespace PeixeAbissal.Scene {
     public class SceneController : MonoBehaviour {
 
         internal SceneManager sceneManager;
-        protected virtual string nextLevel {get; private set;}
+        protected virtual string nextLevel { get; private set; }
 
         protected float points = 0;
         protected float pointsPerAction = 0.1f;
@@ -102,15 +102,15 @@ namespace PeixeAbissal.Scene {
 
         protected bool CheckPosition (InteractableObject originObject, Transform destination, Action callback, bool resetIfFail = true) {
 
-            float acceptableDistance = Vector3.Distance(originObject.originPosition, destination.position)/10;
-            if (Vector3.Distance(originObject.transform.position, destination.position) <= acceptableDistance) {
+            float acceptableDistance = Vector3.Distance (originObject.originPosition, destination.position) / 10;
+            if (Vector3.Distance (originObject.transform.position, destination.position) <= acceptableDistance) {
 
                 originObject.transform.position = destination.position;
-                callback?.Invoke();
+                callback?.Invoke ();
                 return true;
             }
             if (resetIfFail)
-                originObject.ResetPosition();
+                originObject.ResetPosition ();
             return false;
         }
 
@@ -120,15 +120,15 @@ namespace PeixeAbissal.Scene {
             this.points += points;
             if (showBar)
                 fillBarController.ChangePoints (this.points);
-            if (this.points > finishPoints)
+            if (this.points >= finishPoints)
                 OnFinishLevel (true, Side.Right);
         }
 
-        protected virtual void OnFinishLevel (bool instaLoadNextLevel = false, Side exitSide = Side.Right) {
+        protected virtual void OnFinishLevel (bool instaLoadNextLevel = true, Side exitSide = Side.Right) {
 
             InputManager.ClearKeys ();
             if (instaLoadNextLevel)
-                sceneManager.LoadScene(nextLevel, exitSide);
+                sceneManager.LoadScene (nextLevel, exitSide);
         }
 
         private void SetOnScreen () {

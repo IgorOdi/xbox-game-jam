@@ -6,7 +6,7 @@ namespace PeixeAbissal.Scene {
 
     public class EspelhoSceneController : SceneController {
 
-        protected override string nextLevel { get { return "SemNome"; } }
+        protected override string nextLevel { get { return "CenaReflexiva"; } }
         [SerializeField]
         private InteractableObject roupa, bone;
         [SerializeField]

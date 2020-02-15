@@ -16,7 +16,7 @@ namespace PeixeAbissal.Scene {
 
             InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
 
-                despertador.OnMouseClick += () => AddPoints (finishPoints, false);
+                despertador.OnMouseClick += () => OnFinishLevel();
             });
         }
     }
