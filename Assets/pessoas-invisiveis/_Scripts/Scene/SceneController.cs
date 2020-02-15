@@ -1,16 +1,25 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using PeixeAbissal.Enum;
+using PeixeAbissal.Input;
+using PeixeAbissal.UI;
 using UnityEngine;
 
 namespace PeixeAbissal.Scene {
 
     public class SceneController : MonoBehaviour {
 
+        internal SceneManager sceneManager;
+        protected virtual string nextLevel {get; private set;}
+
+        protected float points = 0;
+        protected float pointsPerAction = 0.1f;
+        protected float finishPoints = 1;
+
         [SerializeField]
         protected Canvas canvas;
+        [SerializeField]
+        private FillBarController fillBarController;
         private RectTransform background;
 
         private (Vector2, Vector2) onScreenAnchor = (new Vector2 (0, 0), new Vector2 (1, 1));
@@ -19,11 +28,12 @@ namespace PeixeAbissal.Scene {
         private (Vector2, Vector2) topAnchor = (new Vector2 (0, 1), new Vector2 (1, 2));
         private (Vector2, Vector2) bottomAnchor = (new Vector2 (0, -1), new Vector2 (1, 0));
 
+        private void Awake () => background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
+
         internal virtual void StartScene () { }
 
         internal void Enter (Side enterSide, float duration, Action callback) {
 
-            background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
             if (enterSide.Equals (Side.Left)) {
 
                 background.anchorMin = leftAnchor.Item1;
@@ -52,16 +62,13 @@ namespace PeixeAbissal.Scene {
             background.DOAnchorMin (onScreenAnchor.Item1, duration);
             background.DOAnchorMax (onScreenAnchor.Item2, duration)
                 .OnComplete (() => {
-
-                    print("Completou");
                     callback?.Invoke ();
                 });
         }
 
         internal void Exit (Side exitSide, float duration, Action callback) {
 
-            background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
-            SetOnScreen ();            
+            SetOnScreen ();
             Vector2 min = Vector2.zero;
             Vector2 max = Vector2.zero;
             if (exitSide.Equals (Side.Left)) {
@@ -91,6 +98,23 @@ namespace PeixeAbissal.Scene {
             background.DOAnchorMin (min, duration);
             background.DOAnchorMax (max, duration)
                 .OnComplete (() => callback?.Invoke ());
+        }
+
+        protected virtual void AddPoints (float points = 0, bool showBar = true) {
+
+            points = points.Equals (0) ? pointsPerAction : points;
+            this.points += points;
+            if (showBar)
+                fillBarController.ChangePoints (this.points);
+            if (this.points > finishPoints)
+                OnFinishLevel (true, Side.Right);
+        }
+
+        protected virtual void OnFinishLevel (bool instaLoadNextLevel = false, Side exitSide = Side.Right) {
+
+            InputManager.ClearKeys ();
+            if (instaLoadNextLevel)
+                sceneManager.LoadScene(nextLevel, exitSide);
         }
 
         private void SetOnScreen () {

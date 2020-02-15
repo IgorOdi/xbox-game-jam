@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/pessoas-invisiveis/Scenes/Dev/Escova.unity
     guid: 8f06b06f1d416e54990da65e0caba3d1
+  - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/Espelho.unity
+    guid: 307ea6b6dfb97934bb2111253926195f
   m_configObjects: {}

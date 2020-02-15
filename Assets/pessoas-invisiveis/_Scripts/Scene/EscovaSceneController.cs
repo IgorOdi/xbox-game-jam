@@ -6,17 +6,28 @@ namespace PeixeAbissal.Scene {
 
     public class EscovaSceneController : SceneController {
 
+        protected override string nextLevel { get { return "Espelho"; } }
+        private string lastKeyString;
+
         internal override void StartScene () {
 
             InputManager.RegisterAtKey (KeyCode.A, InputType.Press, () => {
 
-                Debug.Log ("Apertou A");
+                OnPressAnyKey ("A");
             });
 
             InputManager.RegisterAtKey (KeyCode.D, InputType.Press, () => {
 
-                Debug.Log ("Apertou D");
+                OnPressAnyKey ("D");
             });
+        }
+
+        private void OnPressAnyKey (string lastKey) {
+
+            if (lastKeyString != lastKey) {
+                AddPoints ();
+                lastKeyString = lastKey;
+            }
         }
     }
 }

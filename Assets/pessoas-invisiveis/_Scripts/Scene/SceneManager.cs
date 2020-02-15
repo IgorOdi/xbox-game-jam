@@ -10,11 +10,11 @@ namespace PeixeAbissal.Scene {
 
         internal SceneController currentSceneController;
         private bool changingScene;
-        private string lastSceneLoaded = "Main";
 
         void Awake () {
 
             currentSceneController = FindObjectOfType<SceneController> ();
+            currentSceneController.sceneManager = this;
             currentSceneController.StartScene ();
         }
 
@@ -52,7 +52,7 @@ namespace PeixeAbissal.Scene {
 
                         changingScene = false;
                         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync (actualScene);
-                        InputManager.ClearKeys ();
+                        currentSceneController.sceneManager = this;
                         currentSceneController.StartScene ();
                     });
                 };
