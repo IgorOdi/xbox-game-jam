@@ -7,14 +7,14 @@ namespace PeixeAbissal.Scene {
 
     public class ReflexiveMirrorSceneController : SceneController {
 
-        protected override string nextLevel { get { return "Acordar"; } }
+        protected override string nextLevel { get { return "CaminhoTrabalho"; } }
 
         [SerializeField]
         private BalloonController balloonController;
 
         internal override void StartScene () {
 
-            balloonController.ShowBalloon (() => ConfigureInputAfterBalloonOnScreen ());
+            balloonController.ShowBalloon (() => ConfigureInputAfterBalloonOnScreen (), 1.5f);
         }
 
         private void ConfigureInputAfterBalloonOnScreen () {

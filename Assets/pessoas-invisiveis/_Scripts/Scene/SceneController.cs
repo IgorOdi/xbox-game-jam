@@ -52,6 +52,7 @@ namespace PeixeAbissal.Scene {
                 background.anchorMax = bottomAnchor.Item2;
             } else if (enterSide.Equals (Side.Fade)) {
 
+                
                 CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup> ();
                 canvas.GetComponent<CanvasGroup> ().DOFade (1, duration)
                     .From (0)

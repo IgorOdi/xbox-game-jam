@@ -1,30 +1,48 @@
 ﻿using System;
+using DG.Tweening;
 using PeixeAbissal.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PeixeAbissal.UI {
 
     public class BalloonController : MonoBehaviour {
 
-        public void ShowBalloon (Action callback, float secondsToHide, Action hideCallback) {
+        private const float FADE_DURATION = 1;
 
-            gameObject.SetActive(true);
-            GetComponent<AnimationUtils> ().PlayAnimation ("BallonEnter", callback);
-            this.RunDelayed (secondsToHide, () => {
+        public void ShowBalloon (float fadeTime, Action callback, float secondsToHide, Action hideCallback) {
 
-                HideBallon (hideCallback);
-            });
+            gameObject.SetActive (true);
+            GetComponent<CanvasGroup> ().DOFade (1, FADE_DURATION)
+                .From (0)
+                .OnComplete (() => {
+                    callback?.Invoke ();
+                    this.RunDelayed (secondsToHide, () => {
+
+                        HideBallon (hideCallback);
+                    });
+                });
         }
 
-        public void ShowBalloon (Action callback) {
+        public void ShowBalloon (Action callback, float fadeTime = FADE_DURATION) {
 
-            gameObject.SetActive(true);
-            GetComponent<AnimationUtils> ().PlayAnimation ("BallonEnter", callback);
+            gameObject.SetActive (true);
+            GetComponent<CanvasGroup> ().DOFade (1, fadeTime)
+                .From (0)
+                .OnComplete (() => {
+
+                    callback?.Invoke ();
+                });
         }
 
-        public void HideBallon (Action callback) {
+        public void HideBallon (Action callback, float fadeTime = FADE_DURATION) {
 
-            GetComponent<AnimationUtils> ().PlayAnimation ("BallonExit", callback);
+            GetComponent<CanvasGroup> ().DOFade (0, fadeTime)
+                .From (1)
+                .OnComplete (() => {
+
+                    callback?.Invoke ();
+                });
         }
     }
 }

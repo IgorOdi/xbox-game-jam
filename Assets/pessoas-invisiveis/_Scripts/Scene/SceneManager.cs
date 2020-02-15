@@ -10,11 +10,12 @@ namespace PeixeAbissal.Scene {
 
         internal SceneController currentSceneController;
         private bool changingScene;
+        private float sceneTransitionDuration = 2;
 
         void Awake () {
 
             currentSceneController = FindObjectOfType<SceneController> ();
-            InitializeScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
+            InitializeScene (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
         }
 
         public void LoadScene (string sceneName, Side enterSide) {
@@ -25,6 +26,11 @@ namespace PeixeAbissal.Scene {
             }
 
             string actualScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
+
+            bool fadeLoad = enterSide.Equals (Side.Fade);
+            if (fadeLoad) FadeScreenController.nextScene = sceneName;
+            sceneName = fadeLoad && actualScene != "BlackScreen" ? "BlackScreen" : sceneName;
+
             if (sceneName.Equals (actualScene))
                 throw new InvalidOperationException ("Não pode carregar a mesma cena já carregada");
 
@@ -46,10 +52,10 @@ namespace PeixeAbissal.Scene {
                         }
                     }
 
-                    previousSceneController.Exit (GetExitSideFromEnter (enterSide), 1, null);
-                    currentSceneController.Enter (enterSide, 1, () => {
+                    previousSceneController.Exit (GetExitSideFromEnter (enterSide), sceneTransitionDuration, null);
+                    currentSceneController.Enter (enterSide, sceneTransitionDuration, () => {
 
-                        InitializeScene(actualScene);
+                        InitializeScene (actualScene);
                     });
                 };
         }
