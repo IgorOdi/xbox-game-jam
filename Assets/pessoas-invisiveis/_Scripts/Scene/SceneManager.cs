@@ -1,6 +1,6 @@
 ﻿using System;
 using PeixeAbissal.Enum;
-using PeixeAbissal.Input;
+using PeixeAbissal.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,8 +14,7 @@ namespace PeixeAbissal.Scene {
         void Awake () {
 
             currentSceneController = FindObjectOfType<SceneController> ();
-            currentSceneController.sceneManager = this;
-            currentSceneController.StartScene ();
+            InitializeScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
         }
 
         public void LoadScene (string sceneName, Side enterSide) {
@@ -50,12 +49,21 @@ namespace PeixeAbissal.Scene {
                     previousSceneController.Exit (GetExitSideFromEnter (enterSide), 1, null);
                     currentSceneController.Enter (enterSide, 1, () => {
 
-                        changingScene = false;
-                        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync (actualScene);
-                        currentSceneController.sceneManager = this;
-                        currentSceneController.StartScene ();
+                        InitializeScene(actualScene);
                     });
                 };
+        }
+
+        private void InitializeScene (string actualSceneName) {
+
+            changingScene = false;
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync (actualSceneName);
+
+            foreach (InteractableObject i in FindObjectsOfType<InteractableObject> ())
+                i.InitializeObject ();
+
+            currentSceneController.sceneManager = this;
+            currentSceneController.StartScene ();
         }
 
         private Side GetExitSideFromEnter (Side enterSide) {

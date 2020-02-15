@@ -100,6 +100,20 @@ namespace PeixeAbissal.Scene {
                 .OnComplete (() => callback?.Invoke ());
         }
 
+        protected bool CheckPosition (InteractableObject originObject, Transform destination, Action callback, bool resetIfFail = true) {
+
+            float acceptableDistance = Vector3.Distance(originObject.originPosition, destination.position)/10;
+            if (Vector3.Distance(originObject.transform.position, destination.position) <= acceptableDistance) {
+
+                originObject.transform.position = destination.position;
+                callback?.Invoke();
+                return true;
+            }
+            if (resetIfFail)
+                originObject.ResetPosition();
+            return false;
+        }
+
         protected virtual void AddPoints (float points = 0, bool showBar = true) {
 
             points = points.Equals (0) ? pointsPerAction : points;

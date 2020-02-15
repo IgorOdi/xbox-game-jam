@@ -1,3 +1,15 @@
-﻿{
-	"name": "PeixeAbissal.UI"
+{
+    "name": "PeixeAbissal.UI",
+    "references": [
+        "GUID:304ed277b41bc2641a575af296125d02"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
 }

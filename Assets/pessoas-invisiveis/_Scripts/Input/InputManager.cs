@@ -21,7 +21,7 @@ namespace PeixeAbissal.Input {
 
         public static void RegisterAtKey (KeyCode key, InputType inputType, Action callback) {
 
-            var inputKey = inputKeys.Where (k => k.keyCode == key).FirstOrDefault();
+            var inputKey = inputKeys.Where (k => k.keyCode == key).FirstOrDefault ();
             if (inputType.Equals (InputType.Press))
                 inputKey.OnPress += callback;
             else if (inputType.Equals (InputType.Hold))
@@ -50,6 +50,11 @@ namespace PeixeAbissal.Input {
                 inputKeys[i].OnHold = null;
                 inputKeys[i].OnRelease = null;
             }
+        }
+
+        public static Vector2 GetMousePosition () {
+
+            return UnityEngine.Input.mousePosition;
         }
 
         private void Update () {
