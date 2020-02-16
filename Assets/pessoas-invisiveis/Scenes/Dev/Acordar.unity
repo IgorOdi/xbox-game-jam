@@ -611,6 +611,8 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  originPosition: {x: 0, y: 0, z: 0}
+  followMouseOnClick: 0
 --- !u!222 &1899312791
 CanvasRenderer:
   m_ObjectHideFlags: 0
