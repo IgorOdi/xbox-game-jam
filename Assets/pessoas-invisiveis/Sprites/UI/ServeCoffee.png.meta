@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: e224d83ebd9a22f438181d3374825cd6
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6807697225644561262
+    second: ServeCoffee_0
+  - first:
+      213: -4842907251758793106
+    second: ServeCoffee_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +88,49 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ServeCoffee_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 256
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdea46bc6e36b3e4281eb6fd50912749
+      internalID: 6807697225644561262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ServeCoffee_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 0
+        width: 257
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12db7fa0fb43bd3408f4b1a5486019b2
+      internalID: -4842907251758793106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

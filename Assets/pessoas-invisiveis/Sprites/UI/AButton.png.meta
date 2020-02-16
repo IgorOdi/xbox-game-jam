@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 3b42d607a28450d41ad79748ef404348
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5901877822842535218
+    second: AButton_0
+  - first:
+      213: 4116472015351261265
+    second: AButton_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +88,49 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AButton_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 236
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee925190c8e30b54c80abfa6620e9d95
+      internalID: -5901877822842535218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AButton_1
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 230
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d86eb04b02057f4f87e2552cde23437
+      internalID: 4116472015351261265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

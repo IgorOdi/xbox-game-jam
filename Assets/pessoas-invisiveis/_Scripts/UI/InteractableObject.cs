@@ -64,6 +64,11 @@ namespace PeixeAbissal.UI {
             OnMouseUp?.Invoke ();
         }
 
+        public virtual void SetInteractable (bool _interactable) {
+
+            interactable = _interactable;
+        }
+
         void Update () {
 
             if (isHoldingObject && interactable) {

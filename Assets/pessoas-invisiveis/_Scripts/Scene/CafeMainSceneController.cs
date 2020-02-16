@@ -13,8 +13,10 @@ namespace PeixeAbissal.Scene {
 
         [SerializeField]
         private string nextLevelToLoad;
-        private float balloonAmountToDestroy = 1;
-        private float balloonsDestroyed;
+        private int balloonAmountToDestroy = 1;
+        private int balloonsDestroyed;
+        private int clientsAtendidos;
+        private int clientToAtender;
 
         [SerializeField]
         private BalloonController[] balloonController;
@@ -24,7 +26,7 @@ namespace PeixeAbissal.Scene {
         private InteractableObject atenderPedidos;
 
         [SerializeField]
-        private ClientController[] clientController;
+        private List<ClientController> clientController = new List<ClientController> ();
 
         private List<float> balloonHealth = new List<float> ();
 
@@ -43,11 +45,12 @@ namespace PeixeAbissal.Scene {
                 int index = i;
                 this.RunDelayed (i * 2.5f, () => RunCafe (index));
             }
+            atenderPedidos.SetInteractable (false);
         }
 
         private void RunCafe (int index) {
 
-            if (clientController != null && clientController.Length > index)
+            if (clientController != null && clientController.Count > index)
                 clientController[index].StartClient ();
 
             balloonHealth.Add (BALLOON_BASE_HEALTH);
@@ -59,20 +62,19 @@ namespace PeixeAbissal.Scene {
                         balloonHealth[index] -= balloon_damage;
                         if (balloonHealth[index] <= 0f) {
 
-                            atenderPedidos.interactable = true;
+                            atenderPedidos.SetInteractable (true);
                             balloonsDestroyed += 1;
-                            if (clientController != null && clientController.Length > index)
-                                clientController[index].ServeClient ();
 
                             Destroy (balloonController[index].gameObject);
-                            if (balloonsDestroyed < balloonAmountToDestroy) {
-                                atenderPedidos.OnMouseClick += () => {
-                                    atenderPedidos.interactable = false;
-                                };
-                            } else {
+                            if (balloonsDestroyed <= balloonAmountToDestroy) {
+                                atenderPedidos.OnMouseClick = () => {
 
-                                atenderPedidos.OnMouseClick += () => {
-                                    OnFinishLevel (true, Side.Fade);
+                                    if (clientController != null && clientController.Count > index) {
+                                        clientController[clientsAtendidos].ServeClient ();
+                                        clientsAtendidos += 1;
+                                    }
+                                    if (clientsAtendidos >= balloonAmountToDestroy)
+                                        OnFinishLevel (true, Side.Fade);
                                 };
                             }
                         }
