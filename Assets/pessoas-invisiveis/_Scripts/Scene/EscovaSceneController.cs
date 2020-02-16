@@ -6,7 +6,11 @@ namespace PeixeAbissal.Scene {
 
     public class EscovaSceneController : SceneController {
 
-        protected override string nextLevel { get { return "Espelho"; } }
+        protected override string nextLevel {
+            get {
+                return DayController.day == 0 ? "Espelho" : "EspelhoRevista";
+            }
+        }
         private string lastKeyString;
 
         internal override void StartScene () {

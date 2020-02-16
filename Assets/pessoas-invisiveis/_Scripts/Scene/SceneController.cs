@@ -30,6 +30,7 @@ namespace PeixeAbissal.Scene {
 
         private void Awake () => background = canvas.transform.GetChild (0).GetComponent<RectTransform> ();
 
+        internal virtual void WillStart () { }
         internal virtual void StartScene () { }
 
         internal void Enter (Side enterSide, float duration, Action callback) {
@@ -52,7 +53,6 @@ namespace PeixeAbissal.Scene {
                 background.anchorMax = bottomAnchor.Item2;
             } else if (enterSide.Equals (Side.Fade)) {
 
-                
                 CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup> ();
                 canvas.GetComponent<CanvasGroup> ().DOFade (1, duration)
                     .From (0)
@@ -103,7 +103,7 @@ namespace PeixeAbissal.Scene {
 
         protected bool CheckPosition (InteractableObject originObject, Transform destination, Action callback, bool resetIfFail = true) {
 
-            float acceptableDistance = Vector3.Distance (originObject.originPosition, destination.position) / 10;
+            float acceptableDistance = Vector3.Distance (originObject.originPosition, destination.position) / 7;
             if (Vector3.Distance (originObject.transform.position, destination.position) <= acceptableDistance) {
 
                 originObject.transform.position = destination.position;

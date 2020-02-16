@@ -15,6 +15,7 @@ namespace PeixeAbissal.Scene {
         void Awake () {
 
             currentSceneController = FindObjectOfType<SceneController> ();
+            currentSceneController.WillStart ();
             InitializeScene (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
         }
 
@@ -53,6 +54,7 @@ namespace PeixeAbissal.Scene {
                     }
 
                     previousSceneController.Exit (GetExitSideFromEnter (enterSide), sceneTransitionDuration, null);
+                    currentSceneController.WillStart ();
                     currentSceneController.Enter (enterSide, sceneTransitionDuration, () => {
 
                         InitializeScene (actualScene);

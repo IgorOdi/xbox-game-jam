@@ -446,13 +446,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1893231128}
   fillBarController: {fileID: 0}
-  nextLevelToLoad: CafePuzzle
+  nextLevelToLoadDay0: CafePuzzle
+  nextLevelToLoadDay1: CafePuzzle2
   balloonController:
   - {fileID: 55915352}
   interactableBalloons:
   - {fileID: 1726450423}
   atenderPedidos: {fileID: 743303739}
   clientController: []
+  cafeMusic: {fileID: 8300000, guid: d1e306e98e0f0407f814c3cd88a85bc0, type: 3}
+  cafeAmbience: {fileID: 8300000, guid: 623a599a1f8774465a039d5d13e1ffb6, type: 3}
+  balloonPop:
+  - {fileID: 8300000, guid: d57605890eb48444c8da5327c8c58b3f, type: 3}
+  - {fileID: 8300000, guid: b2d895abe851a4cee8e7e450d10c0a95, type: 3}
+  - {fileID: 8300000, guid: 78700c940268d48a5be88791dd1e3654, type: 3}
+  - {fileID: 8300000, guid: be50274f741fc48b0bda5cf49fa42369, type: 3}
 --- !u!1 &1726450420
 GameObject:
   m_ObjectHideFlags: 0

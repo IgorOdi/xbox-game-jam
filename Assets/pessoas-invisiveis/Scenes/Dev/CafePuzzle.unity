@@ -712,6 +712,8 @@ MonoBehaviour:
   - {fileID: 2691698285321760653, guid: 056956cfa0ad0d74882674007a4d04ff, type: 3}
   - {fileID: 2742939803510026566, guid: 27e527912c476604b84dd8e34a192b3a, type: 3}
   complete: {fileID: 1399153089}
+  genericPlace: {fileID: 8300000, guid: f2afbbbe171ba489f86836ef9740d152, type: 3}
+  completeSound: {fileID: 8300000, guid: e8dc6d44cbdcf4e7584b2dd63eca6067, type: 3}
 --- !u!1 &1365445774
 GameObject:
   m_ObjectHideFlags: 0

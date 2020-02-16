@@ -1,0 +1,18 @@
+{
+    "name": "PeixeAbissal.Audio",
+    "references": [
+        "GUID:2149755c5b08afc42877d3581b18ccb9"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "DOTweenEditor.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}

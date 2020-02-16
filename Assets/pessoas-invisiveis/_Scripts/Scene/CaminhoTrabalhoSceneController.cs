@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
@@ -7,7 +8,11 @@ namespace PeixeAbissal.Scene {
 
     public class CaminhoTrabalhoSceneController : SceneController {
 
-        protected override string nextLevel { get { return "CafeMain"; } }
+        protected override string nextLevel {
+            get {
+                return DayController.day == 0 ? "CafeMain" : "CafeMain";
+            }
+        }
 
         [SerializeField]
         private RectTransform pathArea;
@@ -17,18 +22,44 @@ namespace PeixeAbissal.Scene {
         private InteractableObject buyButton;
         [SerializeField]
         private BalloonController balloonController;
+        [SerializeField]
+        private GameObject peopleSecondDay;
+
+        [Header ("Audio"), SerializeField]
+        private AudioClip streetAmbience;
+        [SerializeField]
+        private AudioClip buySound;
+        [SerializeField]
+        private AudioClip streetWalk;
 
         private const float SCROLL_DURATION = 10;
         private const float AREA_LIMIT = -3840;
 
+        internal override void WillStart () {
+
+            MusicPlayer.Instance.StopMusic ();
+            MusicPlayer.Instance.PlayAmbience (streetAmbience);
+
+            if (DayController.day == 1)
+                peopleSecondDay.SetActive (true);
+        }
+
         internal override void StartScene () {
 
+            MusicPlayer.Instance.PlaySFX (streetWalk, true);
             pathArea.DOAnchorPosX (AREA_LIMIT, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
-                    revista.gameObject.SetActive (true);
-                    revista.OnMouseClick += ZoomRevista;
+                    MusicPlayer.Instance.StopSFX ();
+
+                    if (DayController.day == 0) {
+                        revista.gameObject.SetActive (true);
+                        revista.OnMouseClick += ZoomRevista;
+                    } else {
+
+                        OnFinishLevel (true, Side.Fade);
+                    }
                 });
         }
 
@@ -46,7 +77,10 @@ namespace PeixeAbissal.Scene {
                             .SetEase (Ease.OutBack)
                             .OnComplete (() => {
 
-                                buyButton.OnMouseClick += () => OnFinishLevel (true, Side.Fade);
+                                buyButton.OnMouseClick += () => {
+                                    MusicPlayer.Instance.PlaySFX (buySound);
+                                    OnFinishLevel (true, Side.Fade);
+                                };
                             });
                     }, 1.5f);
                 });

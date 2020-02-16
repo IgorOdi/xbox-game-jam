@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using PeixeAbissal.Audio;
+using PeixeAbissal.Enum;
+using PeixeAbissal.Input;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
 using UnityEngine;
@@ -24,30 +29,48 @@ namespace PeixeAbissal.Scene {
         private InteractableObject complete;
 
         [SerializeField]
-        private InteractableObject[] instatiatedIngredients;
+        private FillBarController timeBarController;
 
-        [SerializeField]
+        private InteractableObject[] instatiatedIngredients;
         private List<InteractableObject> placedIngredients = new List<InteractableObject> ();
+
+        [Header ("Audio"), SerializeField]
+        private AudioClip genericPlace;
+        [SerializeField]
+        private AudioClip completeSound;
 
         internal override void StartScene () {
 
-            this.RunDelayed (0.5f, () => {
+            instatiatedIngredients = new InteractableObject[ingredients.Length];
+            for (int i = 0; i < ingredients.Length; i++) {
 
-                instatiatedIngredients = new InteractableObject[ingredients.Length];
-                for (int i = 0; i < ingredients.Length; i++) {
+                int index = i;
+                this.RunDelayed (index * 0.25f, () => {
 
-                    var instantiatedIngredient = Instantiate (ingredients[i], sourcePositions[i].position, Quaternion.identity, sceneUIHolder);
-                    instatiatedIngredients[i] = instantiatedIngredient.GetComponent<InteractableObject> ();
-                    instatiatedIngredients[i].InitializeObject (true);
-                    int index = i;
-                    instatiatedIngredients[i].OnMouseExit += () => {
+                    var instantiatedIngredient = Instantiate (ingredients[index], sourcePositions[index].position, Quaternion.identity, sceneUIHolder);
+                    instatiatedIngredients[index] = instantiatedIngredient.GetComponent<InteractableObject> ();
+                    instatiatedIngredients[index].InitializeObject (true);
+                    instatiatedIngredients[index].transform.DOScale (1, 0.5f)
+                        .From (0)
+                        .SetEase (Ease.OutBack);
+                    instatiatedIngredients[index].OnMouseUp += () => {
                         if (TestPosition (instatiatedIngredients[index])) {
 
                             CheckIngredients (index);
                         }
                     };
-                }
-            });
+                });
+            }
+
+            if (DayController.day == 1) {
+                this.RunDelayed (1.25f, () => {
+
+                    StartCoroutine (CompleteBar (6f, () => {
+
+                        OnFinishLevel (true, Side.Fade);
+                    }));
+                });
+            }
         }
 
         private void CheckIngredients (int index) {
@@ -71,6 +94,11 @@ namespace PeixeAbissal.Scene {
                         return;
                     }
                 }
+
+                for (int i = 0; i < instatiatedIngredients.Length; i++) {
+                    instatiatedIngredients[i].SetInteractable (false);
+                }
+                MusicPlayer.Instance.PlaySFX (completeSound);
                 complete.gameObject.SetActive (true);
                 complete.OnMouseClick += () => OnFinishLevel ();
             }
@@ -80,20 +108,35 @@ namespace PeixeAbissal.Scene {
 
             for (int i = 0; i < ingredients.Length; i++) {
 
-                float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 10;
+                float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
 
+                    MusicPlayer.Instance.PlaySFX (genericPlace);
                     originObject.transform.position = destinationPositions[i].position;
                     return true;
                 }
             }
 
             originObject.ResetPosition ();
-            if (placedIngredients.Contains(originObject)) {
+            if (placedIngredients.Contains (originObject)) {
 
-                placedIngredients.Remove(originObject);
+                placedIngredients.Remove (originObject);
             }
             return false;
+        }
+
+        private IEnumerator CompleteBar (float limitTime, Action callback) {
+
+            timeBarController.gameObject.SetActive (true);
+            float t = 0;
+            while (t <= limitTime) {
+
+                timeBarController.ChangePoints (t / limitTime);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            callback?.Invoke ();
         }
     }
 }

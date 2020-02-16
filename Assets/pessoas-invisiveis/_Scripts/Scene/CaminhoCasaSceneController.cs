@@ -6,7 +6,7 @@ namespace PeixeAbissal.Scene {
 
     public class CaminhoCasaSceneController : SceneController {
 
-        protected override string nextLevel { get { return "CafeMain"; } }
+        protected override string nextLevel { get { return "Dormir"; } }
 
         [SerializeField]
         private RectTransform pathArea;

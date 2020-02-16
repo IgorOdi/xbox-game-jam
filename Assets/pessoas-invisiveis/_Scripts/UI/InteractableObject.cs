@@ -47,7 +47,6 @@ namespace PeixeAbissal.UI {
         public void OnPointerDown (PointerEventData data) {
 
             if (!interactable) return;
-
             if (followMouseOnClick)
                 isHoldingObject = true;
 
@@ -57,7 +56,6 @@ namespace PeixeAbissal.UI {
         public void OnPointerUp (PointerEventData data) {
 
             if (!interactable) return;
-
             if (followMouseOnClick && isHoldingObject)
                 isHoldingObject = false;
 
