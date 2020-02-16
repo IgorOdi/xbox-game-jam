@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using PeixeAbissal.Audio;
+using PeixeAbissal.Enum;
 using PeixeAbissal.Input;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
@@ -25,6 +27,9 @@ namespace PeixeAbissal.Scene {
         private GameObject[] ingredients;
         [SerializeField]
         private InteractableObject complete;
+
+        [SerializeField]
+        private FillBarController timeBarController;
 
         private InteractableObject[] instatiatedIngredients;
         private List<InteractableObject> placedIngredients = new List<InteractableObject> ();
@@ -54,6 +59,16 @@ namespace PeixeAbissal.Scene {
                             CheckIngredients (index);
                         }
                     };
+                });
+            }
+
+            if (DayController.day == 1) {
+                this.RunDelayed (1.25f, () => {
+
+                    StartCoroutine (CompleteBar (6f, () => {
+
+                        OnFinishLevel (true, Side.Fade);
+                    }));
                 });
             }
         }
@@ -108,6 +123,20 @@ namespace PeixeAbissal.Scene {
                 placedIngredients.Remove (originObject);
             }
             return false;
+        }
+
+        private IEnumerator CompleteBar (float limitTime, Action callback) {
+
+            timeBarController.gameObject.SetActive (true);
+            float t = 0;
+            while (t <= limitTime) {
+
+                timeBarController.ChangePoints (t / limitTime);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            callback?.Invoke ();
         }
     }
 }

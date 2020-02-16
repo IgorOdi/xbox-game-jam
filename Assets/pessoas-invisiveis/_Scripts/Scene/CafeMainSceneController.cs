@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using PeixeAbissal.Audio;
 using PeixeAbissal.Enum;
@@ -10,14 +11,22 @@ namespace PeixeAbissal.Scene {
 
     public class CafeMainSceneController : SceneController {
 
-        protected override string nextLevel { get { return nextLevelToLoad; } }
+        protected override string nextLevel {
+            get {
+                return DayController.day == 0 ? nextLevelToLoadDay0 : nextLevelToLoadDay1;
+            }
+        }
 
         [SerializeField]
-        private string nextLevelToLoad;
+        private string nextLevelToLoadDay0;
+        [SerializeField]
+        private string nextLevelToLoadDay1;
+
+        [SerializeField]
         private int balloonAmountToDestroy = 1;
+        [SerializeField]
         private int balloonsDestroyed;
         private int clientsAtendidos;
-        private int clientToAtender;
 
         [SerializeField]
         private BalloonController[] balloonController;
@@ -34,6 +43,9 @@ namespace PeixeAbissal.Scene {
         private float balloon_damage = 1f;
         private const float BALLOON_BASE_HEALTH = 1f;
 
+        [SerializeField]
+        private LuneController luneController;
+
         [Header ("Audio"), SerializeField]
         private AudioClip cafeMusic;
         [SerializeField]
@@ -49,15 +61,18 @@ namespace PeixeAbissal.Scene {
 
         internal override void StartScene () {
 
+            DayController.day = 1;
+
             if (balloonController.Length != interactableBalloons.Length)
                 throw new System.Exception ("Número de balões e interactables são diferentes");
 
             balloonAmountToDestroy = balloonController.Length;
             balloonHealth = new List<float> (balloonController.Length);
+            float dayInterval = DayController.day == 0 ? 2.5f : 1f;
             for (int i = 0; i < balloonController.Length; i++) {
 
                 int index = i;
-                this.RunDelayed (i * 2.5f, () => RunCafe (index));
+                this.RunDelayed (i * dayInterval, () => RunCafe (index));
             }
             atenderPedidos.SetInteractable (false);
         }
@@ -83,10 +98,12 @@ namespace PeixeAbissal.Scene {
                             }
 
                             clientsAtendidos += 1;
-                            if (clientsAtendidos > index)
+                            if (clientsAtendidos >= balloonsDestroyed)
                                 atenderPedidos.SetInteractable (false);
-                            if (clientsAtendidos >= balloonAmountToDestroy)
-                                OnFinishLevel (true, Side.Fade);
+                            if (clientsAtendidos >= balloonAmountToDestroy) {
+
+                                Finish ();
+                            }
                         };
                     }
                 };
@@ -108,9 +125,22 @@ namespace PeixeAbissal.Scene {
 
         private void DestroyBalloon (int index) {
 
-            int r = Random.Range (0, balloonPop.Length);
+            int r = UnityEngine.Random.Range (0, balloonPop.Length);
             MusicPlayer.Instance.PlaySFX (balloonPop[r]);
             Destroy (balloonController[index].gameObject);
         }
+
+        private void Finish () {
+
+            if (DayController.day == 0) {
+                OnFinishLevel (true, Side.Fade);
+            } else {
+                luneController.ShowLune (() => {
+
+                    OnFinishLevel (true, Side.Fade);
+                });
+            }
+        }
+
     }
 }

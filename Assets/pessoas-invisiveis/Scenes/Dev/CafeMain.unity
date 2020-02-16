@@ -446,7 +446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1893231128}
   fillBarController: {fileID: 0}
-  nextLevelToLoad: CafePuzzle
+  nextLevelToLoadDay0: CafePuzzle
+  nextLevelToLoadDay1: CafePuzzle2
   balloonController:
   - {fileID: 55915352}
   interactableBalloons:

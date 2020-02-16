@@ -20,11 +20,16 @@ namespace PeixeAbissal.Audio {
             audioSource = GetComponents<AudioSource> ();
         }
 
-        public void PlayMusic (AudioClip musicClip, bool loop = true) {
+        public void PlayMusic (AudioClip musicClip, bool loop = true, bool overridePrevious = true) {
 
             if (audioSource[0].isPlaying) {
+
+                if (audioSource[0].clip == musicClip && !overridePrevious)
+                    return;
+
                 audioSource[0].DOFade (0, 1f)
                     .OnComplete (() => {
+                        SetMusicVolume(1);
                         InternalPlay (0, musicClip, loop);
                     });
             } else {
@@ -33,11 +38,17 @@ namespace PeixeAbissal.Audio {
             }
         }
 
-        public void PlayAmbience (AudioClip ambienceClip, bool loop = true) {
+        public void PlayAmbience (AudioClip ambienceClip, bool loop = true, bool overridePrevious = true) {
 
             if (audioSource[1].isPlaying) {
+
+                if (audioSource[1].clip == ambienceClip && !overridePrevious)
+                    return;
+
                 audioSource[1].DOFade (0, 1f)
                     .OnComplete (() => {
+
+                        SetAmbienceVolume(1);
                         InternalPlay (1, ambienceClip, loop);
                     });
             } else {

@@ -22,7 +22,7 @@ namespace PeixeAbissal.Scene {
 
         internal override void WillStart () {
 
-            MusicPlayer.Instance.PlayMusic (clairDeLune);
+            MusicPlayer.Instance.PlayMusic (clairDeLune, true, false);
             MusicPlayer.Instance.PlayAmbience (homeAmbience);
         }
 

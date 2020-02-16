@@ -103,7 +103,7 @@ namespace PeixeAbissal.Scene {
 
         protected bool CheckPosition (InteractableObject originObject, Transform destination, Action callback, bool resetIfFail = true) {
 
-            float acceptableDistance = Vector3.Distance (originObject.originPosition, destination.position) / 10;
+            float acceptableDistance = Vector3.Distance (originObject.originPosition, destination.position) / 7;
             if (Vector3.Distance (originObject.transform.position, destination.position) <= acceptableDistance) {
 
                 originObject.transform.position = destination.position;

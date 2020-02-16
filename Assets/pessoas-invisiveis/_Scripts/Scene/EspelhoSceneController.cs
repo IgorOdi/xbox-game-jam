@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using PeixeAbissal.Enum;
 using PeixeAbissal.Input;
 using PeixeAbissal.UI;
@@ -8,7 +9,12 @@ namespace PeixeAbissal.Scene {
 
     public class EspelhoSceneController : SceneController {
 
-        protected override string nextLevel { get { return "CaminhoTrabalho"; } }
+        public static int day;
+        protected override string nextLevel {
+            get {
+                return DayController.day == 0 ? "CaminhoTrabalho" : "GelPuzzle";
+            }
+        }
 
         [SerializeField]
         private InteractableObject roupa, bone;
@@ -16,6 +22,8 @@ namespace PeixeAbissal.Scene {
         private Transform roupaFinalPosition, boneFinalPosition;
         [SerializeField]
         private BalloonController balloonController;
+        [SerializeField]
+        private InteractableObject revista;
 
         private bool showedBalloon;
         private bool boneOnPlace, roupaOnPlace;
@@ -26,13 +34,18 @@ namespace PeixeAbissal.Scene {
             bone.followMouseOnClick = true;
 
             Action resolve = () => {
-
                 AddPoints (0.25f, false);
                 if (points >= 0.5f && !showedBalloon) {
 
-                    InputManager.ClearKeys ();
-                    balloonController.ShowBalloon (() => ConfigureInputAfterBalloonOnScreen (), 1.5f);
-                    showedBalloon = true;
+                    if (DayController.day == 0) {
+
+                        InputManager.ClearKeys ();
+                        balloonController.ShowBalloon (ConfigureInputAfterBalloonOnScreen, 1.5f);
+                        showedBalloon = true;
+                    } else {
+
+                        ConfigureSecondDayMagazine ();
+                    }
                 }
             };
 
@@ -57,7 +70,7 @@ namespace PeixeAbissal.Scene {
             bone.OnMouseDown += () => {
                 if (boneOnPlace) {
                     boneOnPlace = false;
-                    AddPoints(-0.25f, false);
+                    AddPoints (-0.25f, false);
                 }
             };
             bone.OnMouseUp += () => {
@@ -74,12 +87,20 @@ namespace PeixeAbissal.Scene {
             };
         }
 
+        private void ConfigureSecondDayMagazine () {
+
+            revista.gameObject.SetActive (true);
+            revista.OnMouseClick += () => OnFinishLevel (true, Side.Fade);
+            revista.transform.DOScale (1, 1f)
+                .From (0)
+                .SetEase (Ease.OutBack);
+        }
+
         private void ConfigureInputAfterBalloonOnScreen () {
 
             InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
-
                 balloonController.HideBallon (() => {
-                    AddPoints (0.5f, false);
+                    OnFinishLevel (true, Side.Fade);
                 });
             });
         }

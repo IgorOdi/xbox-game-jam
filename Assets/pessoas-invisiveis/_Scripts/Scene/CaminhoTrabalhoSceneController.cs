@@ -8,7 +8,11 @@ namespace PeixeAbissal.Scene {
 
     public class CaminhoTrabalhoSceneController : SceneController {
 
-        protected override string nextLevel { get { return "CafeMain"; } }
+        protected override string nextLevel {
+            get {
+                return DayController.day == 0 ? "CafeMain" : "CafeMain";
+            }
+        }
 
         [SerializeField]
         private RectTransform pathArea;
@@ -18,6 +22,8 @@ namespace PeixeAbissal.Scene {
         private InteractableObject buyButton;
         [SerializeField]
         private BalloonController balloonController;
+        [SerializeField]
+        private GameObject peopleSecondDay;
 
         [Header ("Audio"), SerializeField]
         private AudioClip streetAmbience;
@@ -33,6 +39,9 @@ namespace PeixeAbissal.Scene {
 
             MusicPlayer.Instance.StopMusic ();
             MusicPlayer.Instance.PlayAmbience (streetAmbience);
+
+            if (DayController.day == 1)
+                peopleSecondDay.SetActive (true);
         }
 
         internal override void StartScene () {
@@ -43,8 +52,14 @@ namespace PeixeAbissal.Scene {
                 .OnComplete (() => {
 
                     MusicPlayer.Instance.StopSFX ();
-                    revista.gameObject.SetActive (true);
-                    revista.OnMouseClick += ZoomRevista;
+
+                    if (DayController.day == 0) {
+                        revista.gameObject.SetActive (true);
+                        revista.OnMouseClick += ZoomRevista;
+                    } else {
+
+                        OnFinishLevel (true, Side.Fade);
+                    }
                 });
         }
 
