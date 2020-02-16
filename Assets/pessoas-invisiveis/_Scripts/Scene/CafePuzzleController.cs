@@ -80,18 +80,18 @@ namespace PeixeAbissal.Scene {
 
             for (int i = 0; i < ingredients.Length; i++) {
 
-                float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 10;
+                float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
-
+     
                     originObject.transform.position = destinationPositions[i].position;
                     return true;
                 }
             }
 
             originObject.ResetPosition ();
-            if (placedIngredients.Contains(originObject)) {
+            if (placedIngredients.Contains (originObject)) {
 
-                placedIngredients.Remove(originObject);
+                placedIngredients.Remove (originObject);
             }
             return false;
         }

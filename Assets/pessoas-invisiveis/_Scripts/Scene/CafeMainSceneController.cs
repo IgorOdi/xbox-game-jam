@@ -30,7 +30,7 @@ namespace PeixeAbissal.Scene {
 
         private List<float> balloonHealth = new List<float> ();
 
-        private float balloon_damage = 0.34f;
+        private float balloon_damage = 1f;
         private const float BALLOON_BASE_HEALTH = 1f;
 
         internal override void StartScene () {
@@ -74,6 +74,7 @@ namespace PeixeAbissal.Scene {
                                     }
                                     
                                     clientsAtendidos += 1;
+                                    atenderPedidos.SetInteractable(false);
                                     if (clientsAtendidos >= balloonAmountToDestroy)
                                         OnFinishLevel (true, Side.Fade);
                                 };
