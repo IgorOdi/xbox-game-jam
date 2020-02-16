@@ -118,7 +118,7 @@ namespace PeixeAbissal.Scene {
 
             for (int i = 0; i < ingredients.Length; i++) {
 
-                if (i > destinationPositions.Length) return false;
+                if (i >= destinationPositions.Length) return false;
                 float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
 
