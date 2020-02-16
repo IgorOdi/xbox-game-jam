@@ -28,7 +28,6 @@ namespace PeixeAbissal.Scene {
             Action resolve = () => {
 
                 AddPoints (0.25f, false);
-                print (points);
                 if (points >= 0.5f && !showedBalloon) {
 
                     InputManager.ClearKeys ();
