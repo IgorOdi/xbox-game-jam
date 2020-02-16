@@ -50,38 +50,37 @@ namespace PeixeAbissal.Scene {
 
         private void RunCafe (int index) {
 
-            if (clientController != null && clientController.Count > index)
-                clientController[index].StartClient ();
-
             balloonHealth.Add (BALLOON_BASE_HEALTH);
-            this.RunDelayed (0.5f, () => {
+            balloonController[index].ShowBalloon (null, 0.75f);
 
-                balloonController[index].ShowBalloon (() => {
+            interactableBalloons[index].OnMouseClick += () => {
+                balloonHealth[index] -= balloon_damage;
+                if (balloonHealth[index] <= 0f) {
 
-                    interactableBalloons[index].OnMouseClick += () => {
-                        balloonHealth[index] -= balloon_damage;
-                        if (balloonHealth[index] <= 0f) {
+                    atenderPedidos.SetInteractable (true);
+                    balloonsDestroyed += 1;
 
-                            atenderPedidos.SetInteractable (true);
-                            balloonsDestroyed += 1;
+                    Destroy (balloonController[index].gameObject);
+                    if (balloonsDestroyed <= balloonAmountToDestroy) {
+                        atenderPedidos.OnMouseClick = () => {
 
-                            Destroy (balloonController[index].gameObject);
-                            if (balloonsDestroyed <= balloonAmountToDestroy) {
-                                atenderPedidos.OnMouseClick = () => {
-
-                                    if (clientController != null && clientController.Count > index) {
-                                        clientController[clientsAtendidos].ServeClient ();
-                                    }
-                                    
-                                    clientsAtendidos += 1;
-                                    atenderPedidos.SetInteractable(false);
-                                    if (clientsAtendidos >= balloonAmountToDestroy)
-                                        OnFinishLevel (true, Side.Fade);
-                                };
+                            if (clientController != null && clientController.Count > index) {
+                                clientController[clientsAtendidos].ServeClient ();
                             }
-                        }
-                    };
-                }, .75f);
+
+                            clientsAtendidos += 1;
+                            if (clientsAtendidos > index)
+                                atenderPedidos.SetInteractable (false);
+                            if (clientsAtendidos >= balloonAmountToDestroy)
+                                OnFinishLevel (true, Side.Fade);
+                        };
+                    }
+                };
+            };
+
+            this.RunDelayed (0.5f, () => {
+                if (clientController != null && clientController.Count > index)
+                    clientController[index].StartClient ();
             });
 
             if (!atenderPedidos.IsActive ()) {

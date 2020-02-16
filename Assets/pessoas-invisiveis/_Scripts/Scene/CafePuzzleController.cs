@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PeixeAbissal.Input;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
 using UnityEngine;
@@ -71,6 +72,10 @@ namespace PeixeAbissal.Scene {
                         return;
                     }
                 }
+
+                for (int i = 0; i < instatiatedIngredients.Length; i++) {
+                    instatiatedIngredients[i].SetInteractable(false);
+                }
                 complete.gameObject.SetActive (true);
                 complete.OnMouseClick += () => OnFinishLevel ();
             }
@@ -82,7 +87,7 @@ namespace PeixeAbissal.Scene {
 
                 float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
-     
+
                     originObject.transform.position = destinationPositions[i].position;
                     return true;
                 }
