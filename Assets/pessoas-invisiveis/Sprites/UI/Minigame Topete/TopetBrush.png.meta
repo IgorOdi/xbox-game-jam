@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 9ece2a7a9dff3654694f6a73e10aaf7f
-=======
-guid: d20c8be4ec74049539cc85c49a511cdb
->>>>>>> ab9c86941428b30a91f1192e99c2f18bde262a0e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8681766395308175782
+    second: TopetBrush_0
+  - first:
+      213: -4877404523442470047
+    second: TopetBrush_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,11 +42,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,17 +75,66 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TopetBrush_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 548
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638f7e66f81616f4d86e7dbecdd5f692
+      internalID: 8681766395308175782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopetBrush_1
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 548
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4768ddea6d4982e4d8ff9efeae8c6088
+      internalID: -4877404523442470047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: ae296a2cafad3574abedc748625f0953
-=======
-    spriteID: 553e332fb901e42eca2ea0462d57e7c6
->>>>>>> ab9c86941428b30a91f1192e99c2f18bde262a0e
+    spriteID: 463ff88bb97961643a280109c02ded87
     internalID: 0
     vertices: []
     indices: 

@@ -381,6 +381,57 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 428
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 428
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -123
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573041, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60e7388ddc4aed84aafc298155f1ccd0,
+        type: 3}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8bd337180a852d4e90c092d7e249154, type: 3}
 --- !u!224 &621874680 stripped
@@ -569,7 +620,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 18a0cdcc849025947aaa94262f5a652c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e8c9d38aa2416b428a2c21e3934aa66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -734,6 +785,12 @@ MonoBehaviour:
   roupaFinalPosition: {fileID: 2079754263}
   boneFinalPosition: {fileID: 1971445936}
   balloonController: {fileID: 621874681}
+  revista: {fileID: 0}
+  clair: {fileID: 881893277}
+  noClothes: {fileID: 21300000, guid: 1e8c9d38aa2416b428a2c21e3934aa66, type: 3}
+  onlyBone: {fileID: 21300000, guid: 3353f405f95b46e478d0977cb2610d6e, type: 3}
+  onlyRoupa: {fileID: 21300000, guid: 084c070fc2a951c4c8b88c2d31df23e8, type: 3}
+  fullClothes: {fileID: 21300000, guid: 63541aaf6e4eb3746b8108f5b293c1c4, type: 3}
 --- !u!1 &1101862802
 GameObject:
   m_ObjectHideFlags: 0

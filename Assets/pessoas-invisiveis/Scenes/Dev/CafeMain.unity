@@ -448,14 +448,17 @@ MonoBehaviour:
   fillBarController: {fileID: 0}
   nextLevelToLoadDay0: CafePuzzle
   nextLevelToLoadDay1: CafePuzzle2
-  balloonAmountToDestroy: 1
-  balloonsDestroyed: 0
   balloonController:
   - {fileID: 55915352}
   interactableBalloons:
   - {fileID: 1726450423}
   atenderPedidos: {fileID: 743303739}
   clientController: []
+  clair: {fileID: 1271346775262659570}
+  claires:
+  - {fileID: 21300000, guid: 40b0ea7de825fe245b5d9ebca6eb08e9, type: 3}
+  - {fileID: 21300000, guid: 94a1a59614dd1834396d18a550e44692, type: 3}
+  - {fileID: 21300000, guid: 0a8894cdbe50ab9449cf84176dd15983, type: 3}
   luneController: {fileID: 0}
   cafeMusic: {fileID: 8300000, guid: d1e306e98e0f0407f814c3cd88a85bc0, type: 3}
   cafeAmbience: {fileID: 8300000, guid: 623a599a1f8774465a039d5d13e1ffb6, type: 3}
@@ -1079,8 +1082,50 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 400539346997172783, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400539346997172783, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400539346997172783, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199385659524380303, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199385659524380303, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199385659524380303, guid: d3f646c47e27d9e4e91f686ad908a702,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f646c47e27d9e4e91f686ad908a702, type: 3}
+--- !u!114 &1271346775262659570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2264708618370382237, guid: d3f646c47e27d9e4e91f686ad908a702,
+    type: 3}
+  m_PrefabInstance: {fileID: 1271346775262659569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2857499684009866703
 PrefabInstance:
   m_ObjectHideFlags: 0

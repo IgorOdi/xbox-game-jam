@@ -1796,9 +1796,7 @@ MonoBehaviour:
   canvas: {fileID: 1893231128}
   fillBarController: {fileID: 0}
   nextLevelToLoadDay0: 
-  nextLevelToLoadDay1: 
-  balloonAmountToDestroy: 1
-  balloonsDestroyed: 0
+  nextLevelToLoadDay1: CafePuzzle2
   balloonController:
   - {fileID: 55915352}
   - {fileID: 740082663}
@@ -1818,6 +1816,11 @@ MonoBehaviour:
   - {fileID: 8850811}
   - {fileID: 1213492437}
   - {fileID: 250646784}
+  clair: {fileID: 1170721458}
+  claires:
+  - {fileID: 21300000, guid: 40b0ea7de825fe245b5d9ebca6eb08e9, type: 3}
+  - {fileID: 21300000, guid: 94a1a59614dd1834396d18a550e44692, type: 3}
+  - {fileID: 21300000, guid: 0a8894cdbe50ab9449cf84176dd15983, type: 3}
   luneController: {fileID: 1446946822}
   cafeMusic: {fileID: 0}
   cafeAmbience: {fileID: 0}
@@ -2093,6 +2096,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1170721456}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170721458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2264708618370382237, guid: d3f646c47e27d9e4e91f686ad908a702,
+    type: 3}
+  m_PrefabInstance: {fileID: 1170721456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1213492435
 PrefabInstance:
   m_ObjectHideFlags: 0

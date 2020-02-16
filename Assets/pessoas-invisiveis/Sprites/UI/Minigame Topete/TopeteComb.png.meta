@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 8448002ed0c6b1e4dbbf518ec268897a
-=======
-guid: 3935ac960e4b84bdca797f915d285113
->>>>>>> ab9c86941428b30a91f1192e99c2f18bde262a0e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4472264574684305293
+    second: TopeteComb_0
+  - first:
+      213: -4247831162274382140
+    second: TopeteComb_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,11 +42,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,17 +75,66 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TopeteComb_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 526
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2434cb2c6221104a99f05b7aa2b25c9
+      internalID: 4472264574684305293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopeteComb_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 526
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32d6cde4bfccf14f8889946bf24ba7b
+      internalID: -4247831162274382140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< HEAD
-    spriteID: 300bd4628304ed3449dd0f7a1b3cddf5
-=======
-    spriteID: 449003494c2c54c2eb2080fb4d1d7dd7
->>>>>>> ab9c86941428b30a91f1192e99c2f18bde262a0e
+    spriteID: 0577a400ff9c72a4ba7328c2d7fbb6ff
     internalID: 0
     vertices: []
     indices: 

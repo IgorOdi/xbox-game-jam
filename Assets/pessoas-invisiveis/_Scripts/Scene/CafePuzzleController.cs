@@ -13,6 +13,7 @@ namespace PeixeAbissal.Scene {
 
     public class CafePuzzleController : SceneController {
 
+        public static int cafeIndex;
         protected override string nextLevel { get { return nextLevelToLoad; } }
 
         [SerializeField]
@@ -42,6 +43,13 @@ namespace PeixeAbissal.Scene {
         internal override void StartScene () {
 
             instatiatedIngredients = new InteractableObject[ingredients.Length];
+            if (cafeIndex == 1) {
+
+                for (int i = 0; i < ingredients.Length; i++) {
+
+                    ingredients[i] = ingredients[ingredients.Length - 1];
+                }
+            }
             for (int i = 0; i < ingredients.Length; i++) {
 
                 int index = i;
@@ -67,6 +75,7 @@ namespace PeixeAbissal.Scene {
 
                     StartCoroutine (CompleteBar (6f, () => {
 
+                        cafeIndex += 1;
                         OnFinishLevel (true, Side.Fade);
                     }));
                 });
@@ -80,10 +89,11 @@ namespace PeixeAbissal.Scene {
                 placedIngredients.Add (instatiatedIngredients[index]);
             }
 
-            if (placedIngredients.Count >= ingredients.Length) {
+            if (placedIngredients.Count >= 3) {
 
                 for (int i = 0; i < ingredients.Length; i++) {
 
+                    if (i >= destinationPositions.Length) continue;
                     if (!CheckPosition (instatiatedIngredients[i], destinationPositions[i], null, false)) {
 
                         for (int j = 0; j < ingredients.Length; j++) {
@@ -108,6 +118,7 @@ namespace PeixeAbissal.Scene {
 
             for (int i = 0; i < ingredients.Length; i++) {
 
+                if (i > destinationPositions.Length) return false;
                 float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
 

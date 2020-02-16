@@ -10,7 +10,7 @@ namespace PeixeAbissal.Scene {
 
         [SerializeField]
         private RectTransform pathArea;
-        private const float SCROLL_DURATION = 10;
+        private const float SCROLL_DURATION = 11;
         private const float AREA_LIMIT = 0;
 
         internal override void StartScene () {

@@ -6,6 +6,7 @@ using PeixeAbissal.Enum;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PeixeAbissal.Scene {
 
@@ -22,9 +23,7 @@ namespace PeixeAbissal.Scene {
         [SerializeField]
         private string nextLevelToLoadDay1;
 
-        [SerializeField]
         private int balloonAmountToDestroy = 1;
-        [SerializeField]
         private int balloonsDestroyed;
         private int clientsAtendidos;
 
@@ -44,6 +43,10 @@ namespace PeixeAbissal.Scene {
         private const float BALLOON_BASE_HEALTH = 1f;
 
         [SerializeField]
+        private Image clair;
+        [SerializeField]
+        private Sprite[] claires;
+        [SerializeField]
         private LuneController luneController;
 
         [Header ("Audio"), SerializeField]
@@ -57,18 +60,24 @@ namespace PeixeAbissal.Scene {
 
             MusicPlayer.Instance.PlayMusic (cafeMusic);
             MusicPlayer.Instance.PlayAmbience (cafeAmbience);
+
+            if (DayController.day == 0) {
+
+                clair.sprite = claires[0];
+            } else {
+
+                clair.sprite = claires[2];
+            }
         }
 
         internal override void StartScene () {
-
-            DayController.day = 1;
 
             if (balloonController.Length != interactableBalloons.Length)
                 throw new System.Exception ("Número de balões e interactables são diferentes");
 
             balloonAmountToDestroy = balloonController.Length;
             balloonHealth = new List<float> (balloonController.Length);
-            float dayInterval = DayController.day == 0 ? 2.5f : 1f;
+            float dayInterval = DayController.day == 0 ? 2f : .5f;
             for (int i = 0; i < balloonController.Length; i++) {
 
                 int index = i;
@@ -132,13 +141,25 @@ namespace PeixeAbissal.Scene {
 
         private void Finish () {
 
-            if (DayController.day == 0) {
-                OnFinishLevel (true, Side.Fade);
-            } else {
-                luneController.ShowLune (() => {
+            if (DayController.day == 1 && !DayController.metLune && luneController != null) {
 
+                print (CafePuzzleController.cafeIndex);
+                if (CafePuzzleController.cafeIndex == 1) {
+
+                    nextLevelToLoadDay1 = "CafePuzzle2";
                     OnFinishLevel (true, Side.Fade);
-                });
+                } else {
+                    clair.sprite = claires[1];
+                    luneController.ShowLune (() => {
+
+                        DayController.metLune = true;
+                        nextLevelToLoadDay1 = "LuneGelPuzzle";
+                        OnFinishLevel (true, Side.Fade);
+                    });
+                }
+            } else {
+
+                OnFinishLevel (true, Side.Fade);
             }
         }
 
