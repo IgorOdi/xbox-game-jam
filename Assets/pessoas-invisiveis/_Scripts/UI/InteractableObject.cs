@@ -15,24 +15,38 @@ namespace PeixeAbissal.UI {
         public Action OnMouseUp;
 
         public Vector3 originPosition;
+        public bool interactable = true;
+
         public bool followMouseOnClick;
         private bool isHoldingObject;
 
-        public void OnPointerClick (PointerEventData data) => OnMouseClick?.Invoke ();
-        public void OnPointerEnter (PointerEventData data) => OnMouseHover?.Invoke ();
-        public void OnPointerExit (PointerEventData data) => OnMouseExit?.Invoke ();
+        public void OnPointerClick (PointerEventData data) {
 
-        public void InitializeObject () {
+            if (interactable) OnMouseClick?.Invoke ();
+        }
+        public void OnPointerEnter (PointerEventData data) {
 
-            originPosition = transform.position;
+            if (interactable) OnMouseHover?.Invoke ();
+        }
+        public void OnPointerExit (PointerEventData data) {
+
+            if (interactable) OnMouseExit?.Invoke ();
         }
 
-        public void ResetPosition() {
+        public void InitializeObject (bool followMouseOnClick = false) {
+
+            originPosition = transform.position;
+            this.followMouseOnClick = followMouseOnClick;
+        }
+
+        public void ResetPosition () {
 
             transform.position = originPosition;
         }
 
         public void OnPointerDown (PointerEventData data) {
+
+            if (!interactable) return;
 
             if (followMouseOnClick)
                 isHoldingObject = true;
@@ -42,6 +56,8 @@ namespace PeixeAbissal.UI {
 
         public void OnPointerUp (PointerEventData data) {
 
+            if (!interactable) return;
+
             if (followMouseOnClick && isHoldingObject)
                 isHoldingObject = false;
 
@@ -50,7 +66,7 @@ namespace PeixeAbissal.UI {
 
         void Update () {
 
-            if (isHoldingObject) {
+            if (isHoldingObject && interactable) {
 
                 transform.position = InputManager.GetMousePosition ();
             }

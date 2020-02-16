@@ -15,8 +15,14 @@ namespace PeixeAbissal.UI {
         }
 
         public void ChangePoints (float points) {
+            
             ActivateIfDisabled ();
             fillBar.fillAmount = points;
+        }
+
+        public float GetPoints () {
+
+            return fillBar.fillAmount;
         }
 
         private void ActivateIfDisabled () {
