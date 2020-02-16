@@ -143,7 +143,6 @@ namespace PeixeAbissal.Scene {
 
             if (DayController.day == 1 && !DayController.metLune && luneController != null) {
 
-                print (CafePuzzleController.cafeIndex);
                 if (CafePuzzleController.cafeIndex == 1) {
 
                     nextLevelToLoadDay1 = "CafePuzzle2";
