@@ -23,8 +23,6 @@ namespace PeixeAbissal.Scene {
         [SerializeField]
         private InteractableObject buyButton;
         [SerializeField]
-        private BalloonController balloonController;
-        [SerializeField]
         private RectTransform gradient;
         [SerializeField]
         private Image claire;
@@ -41,7 +39,8 @@ namespace PeixeAbissal.Scene {
         private AudioClip buySound;
 
         private const float SCROLL_DURATION = 10;
-        private const float AREA_LIMIT = -3840;
+        private const int AREA_LIMIT = -3840;
+        private const int AREA_LIMIT_DAY2 = -4800;
 
         internal override void WillStart () {
 
@@ -54,10 +53,11 @@ namespace PeixeAbissal.Scene {
 
         internal override void StartScene () {
 
-            gradient.DOAnchorPosX (AREA_LIMIT * -1, SCROLL_DURATION)
+            int limit = DayController.day == 0 ? AREA_LIMIT : AREA_LIMIT_DAY2;
+            gradient.DOAnchorPosX (limit * -1, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine);
 
-            pathArea.DOAnchorPosX (AREA_LIMIT, SCROLL_DURATION)
+            pathArea.DOAnchorPosX (limit, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
@@ -84,16 +84,14 @@ namespace PeixeAbissal.Scene {
             claire.sprite = moving;
             claire.transform.localScale = new Vector3 (-1, 1, 1);
             zoomed.SetActive (true);
-            InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
-
-                MoveToCafe ();
-            });
+            buyButton.OnMouseClick += MoveToCafe;
         }
 
         private void MoveToCafe () {
 
             claire.DOFade (1, 2f);
             MusicPlayer.Instance.PlaySFX (buySound);
+            zoomed.GetComponent<CanvasGroup> ().DOFade (0, 1.5f);
 
             gradient.DOAnchorPosX ((AREA_LIMIT - 1920) * -1, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine);

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 67335100}
   - component: {fileID: 67335102}
   - component: {fileID: 67335101}
+  - component: {fileID: 67335103}
   m_Layer: 5
   m_Name: NextSceneButton
   m_TagString: Untagged
@@ -177,7 +178,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -4842907251758793106, guid: e224d83ebd9a22f438181d3374825cd6,
+  m_Sprite: {fileID: -4952395906871665244, guid: 87d7b45cf45ccd14699ba6334c1dbc0c,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -198,6 +199,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67335099}
   m_CullTransparentMesh: 0
+--- !u!95 &67335103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67335099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ebb1fc85183e574d91f5e6bfeb6d905, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &153814508
 GameObject:
   m_ObjectHideFlags: 1
@@ -458,6 +478,57 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Alpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 428
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 428
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573042, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573041, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60e7388ddc4aed84aafc298155f1ccd0,
+        type: 3}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702665860889573043, guid: e8bd337180a852d4e90c092d7e249154,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8bd337180a852d4e90c092d7e249154, type: 3}
