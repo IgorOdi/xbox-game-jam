@@ -28,6 +28,7 @@ namespace PeixeAbissal.Scene {
             Action resolve = () => {
 
                 AddPoints (0.25f, false);
+                print (points);
                 if (points >= 0.5f && !showedBalloon) {
 
                     InputManager.ClearKeys ();
@@ -35,9 +36,17 @@ namespace PeixeAbissal.Scene {
                     showedBalloon = true;
                 }
             };
-            roupa.OnMouseExit += () => {
+
+            roupa.OnMouseDown += () => {
+                if (roupaOnPlace) {
+                    roupaOnPlace = false;
+                    AddPoints (-0.25f, false);
+                }
+            };
+            roupa.OnMouseUp += () => {
                 if (CheckPosition (roupa, roupaFinalPosition, resolve)) {
                     roupaOnPlace = true;
+
                 } else {
 
                     if (roupaOnPlace) {
@@ -46,9 +55,16 @@ namespace PeixeAbissal.Scene {
                     }
                 }
             };
-            bone.OnMouseExit += () => {
+            bone.OnMouseDown += () => {
+                if (boneOnPlace) {
+                    boneOnPlace = false;
+                    AddPoints(-0.25f, false);
+                }
+            };
+            bone.OnMouseUp += () => {
                 if (CheckPosition (bone, boneFinalPosition, resolve)) {
                     boneOnPlace = true;
+
                 } else {
 
                     if (boneOnPlace) {

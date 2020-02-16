@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Input;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
@@ -24,31 +26,36 @@ namespace PeixeAbissal.Scene {
         [SerializeField]
         private InteractableObject complete;
 
-        [SerializeField]
         private InteractableObject[] instatiatedIngredients;
-
-        [SerializeField]
         private List<InteractableObject> placedIngredients = new List<InteractableObject> ();
+
+        [Header ("Audio"), SerializeField]
+        private AudioClip genericPlace;
+        [SerializeField]
+        private AudioClip completeSound;
 
         internal override void StartScene () {
 
-            this.RunDelayed (0.5f, () => {
+            instatiatedIngredients = new InteractableObject[ingredients.Length];
+            for (int i = 0; i < ingredients.Length; i++) {
 
-                instatiatedIngredients = new InteractableObject[ingredients.Length];
-                for (int i = 0; i < ingredients.Length; i++) {
+                int index = i;
+                this.RunDelayed (index * 0.25f, () => {
 
-                    var instantiatedIngredient = Instantiate (ingredients[i], sourcePositions[i].position, Quaternion.identity, sceneUIHolder);
-                    instatiatedIngredients[i] = instantiatedIngredient.GetComponent<InteractableObject> ();
-                    instatiatedIngredients[i].InitializeObject (true);
-                    int index = i;
-                    instatiatedIngredients[i].OnMouseExit += () => {
+                    var instantiatedIngredient = Instantiate (ingredients[index], sourcePositions[index].position, Quaternion.identity, sceneUIHolder);
+                    instatiatedIngredients[index] = instantiatedIngredient.GetComponent<InteractableObject> ();
+                    instatiatedIngredients[index].InitializeObject (true);
+                    instatiatedIngredients[index].transform.DOScale (1, 0.5f)
+                        .From (0)
+                        .SetEase (Ease.OutBack);
+                    instatiatedIngredients[index].OnMouseUp += () => {
                         if (TestPosition (instatiatedIngredients[index])) {
 
                             CheckIngredients (index);
                         }
                     };
-                }
-            });
+                });
+            }
         }
 
         private void CheckIngredients (int index) {
@@ -74,8 +81,9 @@ namespace PeixeAbissal.Scene {
                 }
 
                 for (int i = 0; i < instatiatedIngredients.Length; i++) {
-                    instatiatedIngredients[i].SetInteractable(false);
+                    instatiatedIngredients[i].SetInteractable (false);
                 }
+                MusicPlayer.Instance.PlaySFX (completeSound);
                 complete.gameObject.SetActive (true);
                 complete.OnMouseClick += () => OnFinishLevel ();
             }
@@ -88,6 +96,7 @@ namespace PeixeAbissal.Scene {
                 float acceptableDistance = Vector3.Distance (originObject.originPosition, destinationPositions[i].position) / 7;
                 if (Vector3.Distance (originObject.transform.position, destinationPositions[i].position) <= acceptableDistance) {
 
+                    MusicPlayer.Instance.PlaySFX (genericPlace);
                     originObject.transform.position = destinationPositions[i].position;
                     return true;
                 }

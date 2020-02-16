@@ -433,6 +433,9 @@ MonoBehaviour:
   canvas: {fileID: 1893231128}
   fillBarController: {fileID: 186002143957946957}
   despertador: {fileID: 1899312790}
+  clairDeLune: {fileID: 8300000, guid: f7963f71d1e314a1fa9fede036c2097a, type: 3}
+  homeAmbience: {fileID: 8300000, guid: 32a4a6b41d3974651ad58cd1fd08cc6b, type: 3}
+  alarme: {fileID: 8300000, guid: 2e93b127d52dc4c77a1117e51105d082, type: 3}
 --- !u!1 &1101862802
 GameObject:
   m_ObjectHideFlags: 0

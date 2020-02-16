@@ -1,4 +1,5 @@
-﻿using PeixeAbissal.UI;
+﻿using PeixeAbissal.Audio;
+using PeixeAbissal.UI;
 using UnityEngine;
 
 namespace PeixeAbissal {
@@ -9,6 +10,9 @@ namespace PeixeAbissal {
         [SerializeField]
         private GameObject angryReaction;
 
+        [SerializeField]
+        private AudioClip serveSound;
+
         public void StartClient () {
 
             gameObject.SetActive (true);
@@ -16,12 +20,13 @@ namespace PeixeAbissal {
 
         public void ServeClient () {
 
+            MusicPlayer.Instance.PlaySFX(serveSound);
             gameObject.SetActive (false);
         }
 
         void Update () {
 
-            fillBarController.AddPoints (-0.004f);
+            fillBarController.AddPoints (-0.01f);
 
             if (fillBarController.GetPoints () <= 0) {
 

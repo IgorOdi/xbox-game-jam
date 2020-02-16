@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillBarController: {fileID: 8635631818791053812}
   angryReaction: {fileID: 8635631817955177005}
+  serveSound: {fileID: 8300000, guid: 23d9b28dc7cad42e8a588fc10e79907d, type: 3}
 --- !u!1 &8635631819520776471
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
@@ -18,15 +19,30 @@ namespace PeixeAbissal.Scene {
         [SerializeField]
         private BalloonController balloonController;
 
+        [Header ("Audio"), SerializeField]
+        private AudioClip streetAmbience;
+        [SerializeField]
+        private AudioClip buySound;
+        [SerializeField]
+        private AudioClip streetWalk;
+
         private const float SCROLL_DURATION = 10;
         private const float AREA_LIMIT = -3840;
 
+        internal override void WillStart () {
+
+            MusicPlayer.Instance.StopMusic ();
+            MusicPlayer.Instance.PlayAmbience (streetAmbience);
+        }
+
         internal override void StartScene () {
 
+            MusicPlayer.Instance.PlaySFX (streetWalk, true);
             pathArea.DOAnchorPosX (AREA_LIMIT, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
+                    MusicPlayer.Instance.StopSFX ();
                     revista.gameObject.SetActive (true);
                     revista.OnMouseClick += ZoomRevista;
                 });
@@ -46,7 +62,10 @@ namespace PeixeAbissal.Scene {
                             .SetEase (Ease.OutBack)
                             .OnComplete (() => {
 
-                                buyButton.OnMouseClick += () => OnFinishLevel (true, Side.Fade);
+                                buyButton.OnMouseClick += () => {
+                                    MusicPlayer.Instance.PlaySFX (buySound);
+                                    OnFinishLevel (true, Side.Fade);
+                                };
                             });
                     }, 1.5f);
                 });
