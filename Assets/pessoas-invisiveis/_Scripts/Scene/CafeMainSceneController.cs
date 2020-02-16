@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Enum;
 using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
@@ -33,6 +34,19 @@ namespace PeixeAbissal.Scene {
         private float balloon_damage = 1f;
         private const float BALLOON_BASE_HEALTH = 1f;
 
+        [Header ("Audio"), SerializeField]
+        private AudioClip cafeMusic;
+        [SerializeField]
+        private AudioClip cafeAmbience;
+        [SerializeField]
+        private AudioClip[] balloonPop;
+
+        internal override void WillStart () {
+
+            MusicPlayer.Instance.PlayMusic (cafeMusic);
+            MusicPlayer.Instance.PlayAmbience (cafeAmbience);
+        }
+
         internal override void StartScene () {
 
             if (balloonController.Length != interactableBalloons.Length)
@@ -60,7 +74,7 @@ namespace PeixeAbissal.Scene {
                     atenderPedidos.SetInteractable (true);
                     balloonsDestroyed += 1;
 
-                    Destroy (balloonController[index].gameObject);
+                    DestroyBalloon (index);
                     if (balloonsDestroyed <= balloonAmountToDestroy) {
                         atenderPedidos.OnMouseClick = () => {
 
@@ -90,6 +104,13 @@ namespace PeixeAbissal.Scene {
                     .From (0)
                     .SetEase (Ease.OutBack);
             }
+        }
+
+        private void DestroyBalloon (int index) {
+
+            int r = Random.Range (0, balloonPop.Length);
+            MusicPlayer.Instance.PlaySFX (balloonPop[r]);
+            Destroy (balloonController[index].gameObject);
         }
     }
 }
