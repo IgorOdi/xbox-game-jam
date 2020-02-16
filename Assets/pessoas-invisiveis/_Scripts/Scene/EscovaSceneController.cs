@@ -5,6 +5,9 @@ using UnityEngine;
 namespace PeixeAbissal.Scene {
 
     public class EscovaSceneController : SceneController {
+		public Vector3 leftPos, rightPos;
+		public RectTransform brush;
+		public RectTransform foam;
 
         protected override string nextLevel {
             get {
@@ -30,7 +33,18 @@ namespace PeixeAbissal.Scene {
 
             if (lastKeyString != lastKey) {
                 AddPoints ();
-                lastKeyString = lastKey;
+
+				if (lastKeyString == "A")
+				{
+					brush.anchoredPosition = leftPos;
+				}
+				else
+				{
+					brush.anchoredPosition = rightPos;
+				}
+
+				foam.localScale *= 1.2f;
+				lastKeyString = lastKey;
             }
         }
     }
