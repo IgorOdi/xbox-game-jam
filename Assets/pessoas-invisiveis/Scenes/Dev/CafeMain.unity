@@ -448,12 +448,15 @@ MonoBehaviour:
   fillBarController: {fileID: 0}
   nextLevelToLoadDay0: CafePuzzle
   nextLevelToLoadDay1: CafePuzzle2
+  balloonAmountToDestroy: 1
+  balloonsDestroyed: 0
   balloonController:
   - {fileID: 55915352}
   interactableBalloons:
   - {fileID: 1726450423}
   atenderPedidos: {fileID: 743303739}
   clientController: []
+  luneController: {fileID: 0}
   cafeMusic: {fileID: 8300000, guid: d1e306e98e0f0407f814c3cd88a85bc0, type: 3}
   cafeAmbience: {fileID: 8300000, guid: 623a599a1f8774465a039d5d13e1ffb6, type: 3}
   balloonPop:
