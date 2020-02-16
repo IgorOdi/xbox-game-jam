@@ -71,8 +71,9 @@ namespace PeixeAbissal.Scene {
 
                                     if (clientController != null && clientController.Count > index) {
                                         clientController[clientsAtendidos].ServeClient ();
-                                        clientsAtendidos += 1;
                                     }
+                                    
+                                    clientsAtendidos += 1;
                                     if (clientsAtendidos >= balloonAmountToDestroy)
                                         OnFinishLevel (true, Side.Fade);
                                 };
