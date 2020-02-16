@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/pessoas-invisiveis/Scenes/Dev/CafeMain.unity
     guid: 5461d2870c832b540b9cac2f0004018f
   - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/CafeMain2.unity
+    guid: 01bb745ddef881449b378e0b9cbff86e
+  - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/CafePuzzle.unity
+    guid: e8c538063801c954b8aaa5f68a7b229e
+  - enabled: 1
     path: Assets/pessoas-invisiveis/Scenes/Dev/BlackScreen.unity
     guid: 30b43298337001349be5586f87d6e54b
   m_configObjects: {}
