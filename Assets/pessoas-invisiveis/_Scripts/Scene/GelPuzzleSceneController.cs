@@ -6,7 +6,12 @@ namespace PeixeAbissal.Scene {
 
     public class GelPuzzleSceneController : SceneController {
 
-        protected override string nextLevel { get { return "EspelhoMaravilhosa"; } }
+        protected override string nextLevel {
+            get {
+                return DayController.metLune ? "Desfecho" : "EspelhoMaravilhosa";
+            }
+        }
+
         [SerializeField]
         private InteractableObject[] ingredients;
 

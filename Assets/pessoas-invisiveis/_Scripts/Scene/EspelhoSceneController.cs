@@ -4,6 +4,7 @@ using PeixeAbissal.Enum;
 using PeixeAbissal.Input;
 using PeixeAbissal.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PeixeAbissal.Scene {
 
@@ -24,6 +25,11 @@ namespace PeixeAbissal.Scene {
         private BalloonController balloonController;
         [SerializeField]
         private InteractableObject revista;
+
+        [SerializeField]
+        private Image clair;
+        [SerializeField]
+        private Sprite noClothes, onlyBone, onlyRoupa, fullClothes;
 
         private bool showedBalloon;
         private bool boneOnPlace, roupaOnPlace;
@@ -58,14 +64,9 @@ namespace PeixeAbissal.Scene {
             roupa.OnMouseUp += () => {
                 if (CheckPosition (roupa, roupaFinalPosition, resolve)) {
                     roupaOnPlace = true;
-
-                } else {
-
-                    if (roupaOnPlace) {
-                        roupaOnPlace = false;
-                        AddPoints (-0.25f, false);
-                    }
+                    roupa.gameObject.SetActive (false);
                 }
+                ConfigureClothes ();
             };
             bone.OnMouseDown += () => {
                 if (boneOnPlace) {
@@ -76,14 +77,9 @@ namespace PeixeAbissal.Scene {
             bone.OnMouseUp += () => {
                 if (CheckPosition (bone, boneFinalPosition, resolve)) {
                     boneOnPlace = true;
-
-                } else {
-
-                    if (boneOnPlace) {
-                        boneOnPlace = false;
-                        AddPoints (-0.25f, false);
-                    }
+                    bone.gameObject.SetActive (false);
                 }
+                ConfigureClothes ();
             };
         }
 
@@ -103,6 +99,23 @@ namespace PeixeAbissal.Scene {
                     OnFinishLevel (true, Side.Fade);
                 });
             });
+        }
+
+        private void ConfigureClothes () {
+
+            if (boneOnPlace && !roupaOnPlace) {
+
+                clair.sprite = onlyBone;
+            } else if (roupaOnPlace && !boneOnPlace) {
+
+                clair.sprite = onlyRoupa;
+            } else if (roupaOnPlace && boneOnPlace) {
+
+                clair.sprite = fullClothes;
+            } else {
+
+                clair.sprite = noClothes;
+            }
         }
     }
 }

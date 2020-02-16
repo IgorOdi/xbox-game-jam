@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 654251385}
   - component: {fileID: 654251384}
   - component: {fileID: 654251383}
+  - component: {fileID: 654251386}
   m_Layer: 5
   m_Name: Secador
   m_TagString: Untagged
@@ -257,14 +258,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.76470596, b: 0.12941177, a: 0.57254905}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -6712781583426335390, guid: 8ab2e061ab3379040be1d9ed3f8d31dd,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -296,13 +298,32 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1941408614}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 638, y: 358}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 558, y: 12}
+  m_SizeDelta: {x: 660, y: 1046}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &654251386
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654251382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 655e8c63ca3cc3841bf57217da8aeadd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &681146924
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +335,7 @@ GameObject:
   - component: {fileID: 681146925}
   - component: {fileID: 681146926}
   - component: {fileID: 681146927}
+  - component: {fileID: 681146928}
   m_Layer: 5
   m_Name: Escova
   m_TagString: Untagged
@@ -333,12 +355,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1941408614}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 620, y: -91}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 644, y: -139}
+  m_SizeDelta: {x: 548, y: 348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &681146926
 CanvasRenderer:
@@ -361,14 +383,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22352943, g: 0.7137255, b: 0.25882354, a: 0.57254905}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 8681766395308175782, guid: 9ece2a7a9dff3654694f6a73e10aaf7f,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -380,6 +403,25 @@ MonoBehaviour:
   originPosition: {x: 0, y: 0, z: 0}
   interactable: 1
   followMouseOnClick: 0
+--- !u!95 &681146928
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681146924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a291d2215e338d47b4c281114e1b177, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &970937207
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +529,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a3cc3aab2d70f3e4baafd5a56361b9ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 334977cd9b428de408cefe4f0280c225, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -515,6 +557,7 @@ GameObject:
   - component: {fileID: 1679633525}
   - component: {fileID: 1679633526}
   - component: {fileID: 1679633527}
+  - component: {fileID: 1679633528}
   m_Layer: 5
   m_Name: Gel
   m_TagString: Untagged
@@ -539,7 +582,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -687, y: 272}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 342, y: 335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1679633526
 CanvasRenderer:
@@ -562,14 +605,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2863564, g: 0.6137208, b: 0.9339623, a: 0.57254905}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 3572020108787649515, guid: fcfb35a5297ac5c40b1e9b26d9f82726,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -581,6 +625,25 @@ MonoBehaviour:
   originPosition: {x: 0, y: 0, z: 0}
   interactable: 1
   followMouseOnClick: 0
+--- !u!95 &1679633528
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679633524}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fbb47477f4074347888573197e9ce92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1847084063
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,8 +896,8 @@ RectTransform:
   - {fileID: 186002143957946955}
   - {fileID: 1679633525}
   - {fileID: 1999577138}
-  - {fileID: 681146925}
   - {fileID: 654251385}
+  - {fileID: 681146925}
   m_Father: {fileID: 461730095}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -920,6 +983,7 @@ GameObject:
   - component: {fileID: 1999577138}
   - component: {fileID: 1999577139}
   - component: {fileID: 1999577140}
+  - component: {fileID: 1999577141}
   m_Layer: 5
   m_Name: Pente
   m_TagString: Untagged
@@ -944,7 +1008,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -66, y: 278}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 526, y: 326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1999577139
 CanvasRenderer:
@@ -967,14 +1031,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.25490198, b: 0.48235297, a: 0.57254905}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4472264574684305293, guid: 8448002ed0c6b1e4dbbf518ec268897a,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -986,6 +1051,25 @@ MonoBehaviour:
   originPosition: {x: 0, y: 0, z: 0}
   interactable: 1
   followMouseOnClick: 0
+--- !u!95 &1999577141
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999577137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cdcdfc30e29a8c847956497342d443fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &186002143957946954
 PrefabInstance:
   m_ObjectHideFlags: 0
