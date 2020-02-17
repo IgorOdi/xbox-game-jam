@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83da489651d1c4f42bde671bc057be50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clairDeLune: {fileID: 8300000, guid: f7963f71d1e314a1fa9fede036c2097a, type: 3}
 --- !u!1 &1941408613
 GameObject:
   m_ObjectHideFlags: 0

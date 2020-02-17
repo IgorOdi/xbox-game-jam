@@ -12,13 +12,18 @@ namespace PeixeAbissal.Scene {
 
         internal override void StartScene () {
 
-            playButton.onClick.AddListener (OnPlayButtonClick);
-            testButton.onClick.AddListener (null);
+           /*  playButton.onClick.AddListener (OnPlayButtonClick);
+            testButton.onClick.AddListener (OnCreditsButtonClick); */
         }
 
-        private void OnPlayButtonClick () {
+        public void OnPlayButtonClick () {
 
             sceneManager.LoadScene ("Acordar", Side.Fade);
+        }
+
+        public void OnCreditsButtonClick () {
+
+            sceneManager.LoadScene ("Creditos", Side.Fade);
         }
     }
 }

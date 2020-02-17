@@ -37,6 +37,8 @@ namespace PeixeAbissal.Scene {
         private AudioClip streetAmbience;
         [SerializeField]
         private AudioClip buySound;
+        [SerializeField]
+        private AudioClip skateSound;
 
         private const float SCROLL_DURATION = 10;
         private const int AREA_LIMIT = -3840;
@@ -57,6 +59,7 @@ namespace PeixeAbissal.Scene {
             gradient.DOAnchorPosX (limit * -1, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine);
 
+            MusicPlayer.Instance.PlaySFX (skateSound, true);
             pathArea.DOAnchorPosX (limit, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
@@ -93,6 +96,7 @@ namespace PeixeAbissal.Scene {
             MusicPlayer.Instance.PlaySFX (buySound);
             zoomed.GetComponent<CanvasGroup> ().DOFade (0, 1.5f);
 
+            MusicPlayer.Instance.PlaySFX (skateSound, true);
             gradient.DOAnchorPosX ((AREA_LIMIT - 1920) * -1, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine);
 
@@ -101,6 +105,7 @@ namespace PeixeAbissal.Scene {
                 .OnComplete (() => {
 
                     claire.transform.localScale = new Vector3 (1, 1, 1);
+                    MusicPlayer.Instance.StopSFX ();
                     OnFinishLevel (true, Side.Fade);
                 });
         }

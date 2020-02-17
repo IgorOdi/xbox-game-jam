@@ -116,6 +116,8 @@ namespace PeixeAbissal.Scene {
 
         private bool TestPosition (InteractableObject originObject) {
 
+            if (cafeIndex == 1) return false;
+
             for (int i = 0; i < ingredients.Length; i++) {
 
                 if (i >= destinationPositions.Length) return false;

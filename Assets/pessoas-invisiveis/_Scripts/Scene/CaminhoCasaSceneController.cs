@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Enum;
 using UnityEngine;
 
@@ -13,12 +14,17 @@ namespace PeixeAbissal.Scene {
         private const float SCROLL_DURATION = 11;
         private const float AREA_LIMIT = 0;
 
+        [SerializeField]
+        private AudioClip skateSound;
+
         internal override void StartScene () {
 
+            MusicPlayer.Instance.PlaySFX (skateSound);
             pathArea.DOAnchorPosX (0, SCROLL_DURATION)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
+                    MusicPlayer.Instance.StopSFX ();
                     OnFinishLevel (true, Side.Fade);
                 });
 

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/MainMenu.unity
+    guid: f2451434ba4fe4842aa3e179988f9db7
+  - enabled: 1
     path: Assets/pessoas-invisiveis/Scenes/Dev/Acordar.unity
     guid: 682f5a1b18473d24f8a75b286a8716ad
   - enabled: 1
@@ -48,6 +51,9 @@ EditorBuildSettings:
     path: Assets/pessoas-invisiveis/Scenes/Dev/EspelhoMaravilhosa.unity
     guid: 7f576fe133d35024caa36fd6c65dee1e
   - enabled: 1
+    path: Assets/pessoas-invisiveis/Scenes/Dev/Creditos.unity
+    guid: 372e81ea06b8d974bac98734e2f84d58
+  - enabled: 1
     path: Assets/pessoas-invisiveis/Scenes/Dev/LuneGelPuzzle.unity
     guid: 01086f651149ca1469d0991f3ec19c0b
   - enabled: 1
@@ -63,6 +69,6 @@ EditorBuildSettings:
     path: Assets/pessoas-invisiveis/Scenes/Dev/Desfecho.unity
     guid: 9bd1890f75c889e4b960ed24170582db
   - enabled: 1
-    path: Assets/pessoas-invisiveis/Scenes/Dev/MainMenu.unity
-    guid: f2451434ba4fe4842aa3e179988f9db7
+    path: Assets/pessoas-invisiveis/Scenes/Dev/Final.unity
+    guid: 83e42ddb2619f7241afd34da83123be8
   m_configObjects: {}
