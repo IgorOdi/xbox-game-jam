@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 716404044}
   - component: {fileID: 716404043}
   m_Layer: 5
-  m_Name: brushingteeth0
+  m_Name: ClairBrushing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

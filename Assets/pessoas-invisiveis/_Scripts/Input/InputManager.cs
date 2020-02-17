@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PeixeAbissal.Enum;
+using PeixeAbissal.Input.Enum;
 using UnityEngine;
 
 namespace PeixeAbissal.Input {

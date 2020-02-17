@@ -1,5 +1,5 @@
 ﻿using System;
-using PeixeAbissal.Enum;
+using PeixeAbissal.Scene.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,14 +12,14 @@ namespace PeixeAbissal.Scene {
         private bool changingScene;
         private float sceneTransitionDuration = 2;
 
-        void Awake () {
+        public void Awake () {
 
             currentSceneController = FindObjectOfType<SceneController> ();
             currentSceneController.WillStart ();
             InitializeScene (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
         }
 
-        public void LoadScene (string sceneName, Side enterSide) {
+        public void LoadScene (string sceneName, TransitionSide enterSide) {
 
             if (changingScene) {
                 Debug.LogWarning ("Não pode trocar de cena enquanto outra troca já está acontecendo");
@@ -28,7 +28,7 @@ namespace PeixeAbissal.Scene {
 
             string actualScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name;
 
-            bool fadeLoad = enterSide.Equals (Side.Fade);
+            bool fadeLoad = enterSide.Equals (TransitionSide.Fade);
             if (fadeLoad) FadeScreenController.nextScene = sceneName;
             sceneName = fadeLoad && actualScene != "BlackScreen" ? "BlackScreen" : sceneName;
 
@@ -71,26 +71,26 @@ namespace PeixeAbissal.Scene {
                 i.InitializeObject ();
 
             currentSceneController.sceneManager = this;
-            currentSceneController.StartScene ();
+            currentSceneController.OnStart ();
         }
 
-        private Side GetExitSideFromEnter (Side enterSide) {
+        private TransitionSide GetExitSideFromEnter (TransitionSide enterSide) {
 
-            if (enterSide.Equals (Side.Left)) {
+            if (enterSide.Equals (TransitionSide.Left)) {
 
-                return Side.Right;
-            } else if (enterSide.Equals (Side.Right)) {
+                return TransitionSide.Right;
+            } else if (enterSide.Equals (TransitionSide.Right)) {
 
-                return Side.Left;
-            } else if (enterSide.Equals (Side.Bottom)) {
+                return TransitionSide.Left;
+            } else if (enterSide.Equals (TransitionSide.Bottom)) {
 
-                return Side.Top;
-            } else if (enterSide.Equals (Side.Top)) {
+                return TransitionSide.Top;
+            } else if (enterSide.Equals (TransitionSide.Top)) {
 
-                return Side.Bottom;
+                return TransitionSide.Bottom;
             } else {
 
-                return Side.Fade;
+                return TransitionSide.Fade;
             }
         }
     }
