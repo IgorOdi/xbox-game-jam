@@ -110,7 +110,11 @@ namespace PeixeAbissal.Scene {
                 }
                 MusicPlayer.Instance.PlaySFX (completeSound);
                 complete.gameObject.SetActive (true);
-                complete.OnMouseClick += () => OnFinishLevel ();
+                StopAllCoroutines ();
+                complete.OnMouseClick += () => {
+
+                    OnFinishLevel ();
+                };
             }
         }
 
