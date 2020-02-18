@@ -70,7 +70,7 @@ namespace PeixeAbissal.Scene.Coffee {
         private int GetClientAmountPerPuzzle () {
 
             if (coffeeMainPuzzleIndex == 3 || coffeeMainPuzzleIndex == 4)
-                return 5;
+                return 4;
             else if (coffeeMainPuzzleIndex == 1)
                 return 3;
             else

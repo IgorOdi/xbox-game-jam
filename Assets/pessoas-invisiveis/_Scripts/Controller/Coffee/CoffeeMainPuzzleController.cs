@@ -30,6 +30,7 @@ namespace PeixeAbissal.Controller.Coffee {
             clientAmount = _clientAmount;
             onPuzzleComplete = _onPuzzleComplete;
 
+            clientInterval = clientAmount == 4 ? 1f : clientInterval;
             for (int i = 0; i < _clientAmount; i++) {
 
                 int index = i;

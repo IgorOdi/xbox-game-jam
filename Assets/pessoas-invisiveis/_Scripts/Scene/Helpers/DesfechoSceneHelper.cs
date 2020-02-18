@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PeixeAbissal.Audio;
+﻿using PeixeAbissal.Audio;
 using PeixeAbissal.Scene.Enum;
 using UnityEngine;
 
