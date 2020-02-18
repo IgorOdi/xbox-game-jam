@@ -15,11 +15,9 @@ namespace PeixeAbissal.Bootstrapping {
 
             DOTween.defaultEaseType = Ease.InOutSine;
             InputManager.RegisterKeys ();
-#if UNITY_EDITOR
-            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (BoostrapperScene, LoadSceneMode.Additive);
-#else
-            UnityEngine.SceneManagement.SceneManager.LoadScene (MainMenuScene);
-#endif
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name != BoostrapperScene) {
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (BoostrapperScene, LoadSceneMode.Additive);
+            }
         }
     }
 }

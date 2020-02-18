@@ -22,7 +22,7 @@ namespace PeixeAbissal.UI {
         public bool followMouseOnClick;
         private bool isHoldingObject;
 
-        public void InitializeObject (bool followMouseOnClick = false) {
+        public virtual void InitializeObject (bool followMouseOnClick = false) {
 
             originPosition = transform.position;
             this.followMouseOnClick = followMouseOnClick;

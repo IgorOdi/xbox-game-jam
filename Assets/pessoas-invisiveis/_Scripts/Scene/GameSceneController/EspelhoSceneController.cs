@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using PeixeAbissal.Controller.DessingPuzzle;
+using PeixeAbissal.Controller.Enum;
 using PeixeAbissal.Input;
 using PeixeAbissal.Input.Enum;
 using PeixeAbissal.Scene.Enum;
@@ -8,15 +9,13 @@ using PeixeAbissal.UI;
 using PeixeAbissal.UI.Enum;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Morning {
 
     public class EspelhoSceneController : SceneController {
 
-        protected override string nextLevel {
-            get {
-                return DayController.day == 0 ? "CaminhoTrabalho" : "GelPuzzle";
-            }
-        }
+        protected override string nextLevel { get { return nextLevelToLoad; } }
+
+        private string nextLevelToLoad;
 
         [SerializeField]
         private DressingPuzzleController dressingPuzzleController;
@@ -24,12 +23,27 @@ namespace PeixeAbissal.Scene {
         private BalloonController balloonController;
         [SerializeField]
         private InteractableObject revista;
+        [SerializeField]
+        private InteractableObject nextSceneButton;
+        [SerializeField]
+        private Sprite clairMaravilhosa;
+
+        private static bool madeTopete;
+
+        internal override void WillStart () {
+
+            if (DayController.day == 1 && madeTopete) {
+
+                ShowClairMaravilhosa ();
+            }
+        }
 
         internal override void OnStart () {
 
             if (DayController.day == 0)
                 dressingPuzzleController.InitializePuzzle (OnFirstPuzzleResolve);
             else
+            if (!madeTopete)
                 dressingPuzzleController.InitializePuzzle (OnSecondDayPuzzleResolve);
         }
 
@@ -37,20 +51,37 @@ namespace PeixeAbissal.Scene {
 
             Action AfterShowBalloon = delegate {
                 InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
-                    balloonController.HideBallon (() => {
+
+                    InputManager.ClearKeys ();
+                    balloonController.HideBalloon (ShowType.Fade, () => {
+
+                        nextLevelToLoad = "CaminhoTrabalho";
                         OnFinishLevel (TransitionSide.Fade);
                     });
                 });
             };
-            balloonController.ShowBalloon (AfterShowBalloon, 1.5f);
+            balloonController.ShowBalloon (ShowType.Fade, 2f, Ease.InOutSine, AfterShowBalloon);
         }
 
         private void OnSecondDayPuzzleResolve () {
 
             revista.ShowObject (ShowType.Scale, () => {
 
+                madeTopete = true;
+                nextLevelToLoad = "GelPuzzle";
                 revista.OnMouseClick += () => OnFinishLevel (TransitionSide.Fade);
             });
+        }
+
+        private void ShowClairMaravilhosa () {
+
+            dressingPuzzleController.HideClothes (DressingState.APRON_ONLY);
+            balloonController.ShowBalloon (ShowType.Fade, 1.25f, Ease.InOutSine, () => {
+
+                nextLevelToLoad = "CaminhoTrabalho";
+                nextSceneButton.ShowObject (ShowType.Scale, null);
+                nextSceneButton.OnMouseClick += () => OnFinishLevel (TransitionSide.Fade);
+            }, clairMaravilhosa);
         }
     }
 }

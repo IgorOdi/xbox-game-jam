@@ -2,16 +2,12 @@
 using PeixeAbissal.Input.Enum;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Morning {
 
     public class EscovaSceneController : PointSceneController {
 
-        protected override string nextLevel {
-            get {
-                return DayController.day == 0 ? "Espelho" : "EspelhoRevista";
-            }
-        }
-        
+        protected override string nextLevel { get { return "Espelho"; } }
+
         public Vector3 leftPos, rightPos;
         public RectTransform brush;
         public RectTransform foam;

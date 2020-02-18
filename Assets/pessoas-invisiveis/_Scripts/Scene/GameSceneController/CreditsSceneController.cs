@@ -3,7 +3,7 @@ using PeixeAbissal.Input.Enum;
 using PeixeAbissal.Scene.Enum;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Menu {
 
     public class CreditsSceneController : SceneController {
 

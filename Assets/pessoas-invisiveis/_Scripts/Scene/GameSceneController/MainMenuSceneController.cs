@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Menu {
 
     public class MainMenuSceneController : SceneController {
 

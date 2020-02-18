@@ -1,6 +1,8 @@
 ﻿using System;
 using DG.Tweening;
 using PeixeAbissal.Audio;
+using PeixeAbissal.UI.Enum;
+using PeixeAbissal.Utils;
 using UnityEngine;
 
 namespace PeixeAbissal.UI {
@@ -19,15 +21,20 @@ namespace PeixeAbissal.UI {
                 .From (0)
                 .OnComplete (() => {
 
-                    luneBallon.ShowBalloon (1f, () => {
+                    luneBallon.ShowBalloon (ShowType.Fade, () => {
 
-                        clairBalloon.ShowBalloon (null, 1f);
-                    }, 3f, () => {
+                        clairBalloon.ShowBalloon (ShowType.Fade, () => {
 
-                        clairBalloon.HideBallon (() => {
+                            this.RunDelayed (2f, () => {
 
-                            callback?.Invoke ();
-                        }, 1f);
+                                luneBallon.ShowBalloon (ShowType.Fade, null);
+                            });
+                            this.RunDelayed (3f, () => {
+
+                                clairBalloon.ShowBalloon (ShowType.Fade, () => callback?.Invoke ());
+
+                            });
+                        });
                     });
                 });
             MusicPlayer.Instance.PlayMusic (friendsMusic);

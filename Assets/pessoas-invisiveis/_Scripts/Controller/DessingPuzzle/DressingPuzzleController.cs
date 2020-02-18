@@ -1,4 +1,5 @@
 ﻿using System;
+using PeixeAbissal.Controller.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
 
@@ -30,6 +31,16 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
                     dressingClairController.SetClairClothes (dressingState);
                 });
             }
+        }
+
+        public void HideClothes (DressingState dressingState) {
+
+            for (int i = 0; i < clothes.Length; i++) {
+
+                clothes[i].gameObject.SetActive (false);
+            }
+
+            dressingClairController.SetClairClothes (dressingState);
         }
     }
 }

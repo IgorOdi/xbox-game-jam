@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8635631819116623426}
   - component: {fileID: 8635631819116623425}
-  - component: {fileID: 8635631819116623424}
+  - component: {fileID: 7942101335808345138}
   m_Layer: 5
   m_Name: Cliente
   m_TagString: Untagged
@@ -355,7 +355,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8635631819116623427}
   m_CullTransparentMesh: 0
---- !u!114 &8635631819116623424
+--- !u!114 &7942101335808345138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,12 +364,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8635631819116623427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd42d8ae161977441a91103d5ff9bc39, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dd51dde7c92e646a42d275f653d0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fillBarController: {fileID: 8635631818791053812}
+  clientPatienceDuration: 3
   angryReaction: {fileID: 8635631817955177005}
-  serveSound: {fileID: 8300000, guid: 23d9b28dc7cad42e8a588fc10e79907d, type: 3}
 --- !u!1 &8635631819520776471
 GameObject:
   m_ObjectHideFlags: 0

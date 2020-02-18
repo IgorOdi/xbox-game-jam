@@ -5,7 +5,7 @@ using PeixeAbissal.UI;
 using PeixeAbissal.Utils;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Morning {
 
     public class WakeSceneController : SceneController {
 

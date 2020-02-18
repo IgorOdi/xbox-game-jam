@@ -16,8 +16,9 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
             clothInteractable.followMouseOnClick = true;
             clothInteractable.OnMouseUp += () => {
 
-                if (DragHelper.CheckPosition (clothInteractable, clothDestination, onClothResolve)) {
+                if (DragHelper.CheckPosition (clothInteractable, clothDestination)) {
 
+                    onClothResolve?.Invoke ();
                     clothInteractable.gameObject.SetActive (false);
                     dressingState (dressingStateToSet);
                 }

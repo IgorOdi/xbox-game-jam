@@ -19,7 +19,7 @@ namespace PeixeAbissal.Scene {
 
         public void FinishGame () {
 
-            FindObjectOfType<SceneManager> ().LoadScene ("Creditos", TransitionSide.Fade);
+            FindObjectOfType<SceneManager> ().LoadScene ("Creditos", TransitionSide.Fade, 4f);
         }
     }
 }

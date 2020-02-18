@@ -3,7 +3,7 @@ using PeixeAbissal.Audio;
 using PeixeAbissal.Scene.Enum;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Street {
 
     public class CaminhoCasaSceneController : SceneController {
 

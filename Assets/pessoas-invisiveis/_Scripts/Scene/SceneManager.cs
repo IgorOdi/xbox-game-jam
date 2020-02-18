@@ -10,7 +10,6 @@ namespace PeixeAbissal.Scene {
 
         internal SceneController currentSceneController;
         private bool changingScene;
-        private float sceneTransitionDuration = 2;
 
         public void Awake () {
 
@@ -19,7 +18,7 @@ namespace PeixeAbissal.Scene {
             InitializeScene (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name);
         }
 
-        public void LoadScene (string sceneName, TransitionSide enterSide) {
+        public void LoadScene (string sceneName, TransitionSide enterSide, float transitionDuration = 2f) {
 
             if (changingScene) {
                 Debug.LogWarning ("Não pode trocar de cena enquanto outra troca já está acontecendo");
@@ -53,9 +52,9 @@ namespace PeixeAbissal.Scene {
                         }
                     }
 
-                    previousSceneController.Exit (GetExitSideFromEnter (enterSide), sceneTransitionDuration, null);
+                    previousSceneController.Exit (GetExitSideFromEnter (enterSide), transitionDuration, null);
                     currentSceneController.WillStart ();
-                    currentSceneController.Enter (enterSide, sceneTransitionDuration, () => {
+                    currentSceneController.Enter (enterSide, transitionDuration, () => {
 
                         InitializeScene (actualScene);
                     });

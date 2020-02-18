@@ -7,4 +7,11 @@
         CAP_ONLY,
         FULL_CLOTHES
     }
+
+    public enum CoffeePreparePuzzle {
+
+        NO_GEL,
+        ONE_GEL,
+        FULL_GEL,
+    }
 }

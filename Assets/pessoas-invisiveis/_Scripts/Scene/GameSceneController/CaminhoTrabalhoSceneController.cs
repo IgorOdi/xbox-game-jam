@@ -7,11 +7,11 @@ using PeixeAbissal.UI.Enum;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Street {
 
     public class CaminhoTrabalhoSceneController : SceneController {
 
-        protected override string nextLevel { get { return "CafeMain"; } }
+        protected override string nextLevel { get { return "CoffeeMain"; } }
 
         [SerializeField]
         private RectTransform pathArea;

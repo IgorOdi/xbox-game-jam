@@ -350,7 +350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1893231128}
-  fillBarController: {fileID: 0}
   pathArea: {fileID: 248538106}
   skateSound: {fileID: 8300000, guid: ef0aae5955f8145f08d0b440914d0eed, type: 3}
 --- !u!1 &1764998053
@@ -885,16 +884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1924340384}
     m_Modifications:
-    - target: {fileID: 6517565011330908055, guid: 976b778a5aeebf54ca37aaa66cfa0982,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 5513
-      objectReference: {fileID: 0}
-    - target: {fileID: 4778152356940877154, guid: 976b778a5aeebf54ca37aaa66cfa0982,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 5760
-      objectReference: {fileID: 0}
     - target: {fileID: 5691855772384016572, guid: 976b778a5aeebf54ca37aaa66cfa0982,
         type: 3}
       propertyPath: m_Name
@@ -1004,6 +993,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517565011330908055, guid: 976b778a5aeebf54ca37aaa66cfa0982,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778152356940877154, guid: 976b778a5aeebf54ca37aaa66cfa0982,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5760
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890506187468674165, guid: 976b778a5aeebf54ca37aaa66cfa0982,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976b778a5aeebf54ca37aaa66cfa0982, type: 3}

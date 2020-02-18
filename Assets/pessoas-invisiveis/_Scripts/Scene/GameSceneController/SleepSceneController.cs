@@ -4,7 +4,7 @@ using PeixeAbissal.Scene.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
 
-namespace PeixeAbissal.Scene {
+namespace PeixeAbissal.Scene.Morning {
 
     public class SleepSceneController : SceneController {
 
