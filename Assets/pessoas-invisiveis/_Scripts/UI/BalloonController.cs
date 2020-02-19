@@ -27,7 +27,7 @@ namespace PeixeAbissal.UI {
 
         public void HideBalloon (ShowType showType, float duration = 1, Ease ease = Ease.OutBack, Action onShow = null) {
 
-            FadeAll (false, 1f, () => HideObject (showType, duration, ease, onShow));
+            FadeAll (false, duration, () => HideObject (showType, duration, ease, onShow));
         }
 
         public void HideBalloon (ShowType showType, Action onShow) {

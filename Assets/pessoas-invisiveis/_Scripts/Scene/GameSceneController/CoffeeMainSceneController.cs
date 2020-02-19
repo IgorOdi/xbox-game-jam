@@ -45,6 +45,8 @@ namespace PeixeAbissal.Scene.Coffee {
 
         private void OnPuzzleComplete () {
 
+            coffeeMainPuzzleIndex = 4;
+
             if (coffeeMainPuzzleIndex == 4) {
 
                 clair.sprite = claires[1];

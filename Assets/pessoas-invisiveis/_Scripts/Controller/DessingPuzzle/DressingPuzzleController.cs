@@ -10,6 +10,8 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
         [SerializeField]
         private DressingClothController[] clothes;
         [SerializeField]
+        private GameObject capReflex, apronReflex;
+        [SerializeField]
         private DressingClairController dressingClairController;
 
         private int resolvedClothes;
@@ -28,6 +30,8 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
                     }
                 }, (dressingState) => {
 
+                    if (dressingState == DressingState.APRON_ONLY) apronReflex.SetActive (true);
+                    else if (dressingState == DressingState.CAP_ONLY) capReflex.SetActive (true);
                     dressingClairController.SetClairClothes (dressingState);
                 });
             }

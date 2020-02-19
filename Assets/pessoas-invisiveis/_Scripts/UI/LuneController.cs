@@ -27,12 +27,11 @@ namespace PeixeAbissal.UI {
 
                             this.RunDelayed (2f, () => {
 
-                                luneBallon.ShowBalloon (ShowType.Fade, null);
+                                luneBallon.HideBalloon (ShowType.Fade, 0.75f, Ease.InOutSine, null);
                             });
                             this.RunDelayed (3f, () => {
 
-                                clairBalloon.ShowBalloon (ShowType.Fade, () => callback?.Invoke ());
-
+                                clairBalloon.HideBalloon (ShowType.Fade, 0.75f, Ease.InOutSine, () => callback?.Invoke ());
                             });
                         });
                     });
