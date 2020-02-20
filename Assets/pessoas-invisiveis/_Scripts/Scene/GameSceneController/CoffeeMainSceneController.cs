@@ -28,7 +28,7 @@ namespace PeixeAbissal.Scene.Coffee {
         [SerializeField]
         private AudioClip[] balloonPop;
 
-        private static int coffeeMainPuzzleIndex;
+        public static int coffeeMainPuzzleIndex;
 
         internal override void WillStart () {
 

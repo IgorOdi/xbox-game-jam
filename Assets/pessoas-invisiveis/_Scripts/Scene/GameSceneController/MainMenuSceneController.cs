@@ -31,11 +31,12 @@ namespace PeixeAbissal.Scene.Menu {
             playButton.onClick.AddListener (OnPlayButtonClick);
             creditsButton.onClick.AddListener (OnCreditsButtonClick);
             quitButton.onClick.AddListener (OnQuitButtonClick);
-            MusicPlayer.Instance.PlayMusic(titleMusic);
+            MusicPlayer.Instance.PlayMusic (titleMusic);
         }
 
         public void OnPlayButtonClick () {
 
+            DayController.ResetSave ();
             sceneManager.LoadScene ("Acordar", TransitionSide.Fade);
         }
 
