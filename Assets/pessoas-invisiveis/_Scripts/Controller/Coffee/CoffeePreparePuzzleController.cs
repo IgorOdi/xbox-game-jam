@@ -81,7 +81,16 @@ namespace PeixeAbissal.Controller.Coffee {
             }
 
             for (int i = 0; i < SLOTS; i++) {
+
                 if (DragHelper.CheckPosition (originObject, destinationPositions[i], false)) {
+
+                    for (int j = 0; j < SLOTS; j++) {
+                        if (instantiatedIngredients[j] != originObject &&
+                            instantiatedIngredients[j].transform.position == destinationPositions[i].transform.position) {
+                            originObject.ResetPosition ();
+                            return;
+                        }
+                    }
 
                     placedIngredients.Add (originObject);
                     if (placedIngredients.Count >= SLOTS) {

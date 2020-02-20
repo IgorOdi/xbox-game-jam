@@ -33,7 +33,7 @@ namespace PeixeAbissal.Scene.Coffee {
         internal override void WillStart () {
 
             MusicPlayer.Instance.PlayMusic (cafeMusic, true, false);
-            MusicPlayer.Instance.PlayAmbience (cafeAmbience);
+            MusicPlayer.Instance.PlayAmbience (cafeAmbience, true, false);
 
             if (DayController.day == 0)
                 clair.sprite = claires[0];
@@ -52,11 +52,13 @@ namespace PeixeAbissal.Scene.Coffee {
 
                     DayController.metLune = true;
                     nextLevelToLoad = "GelPuzzle";
+                    MusicPlayer.Instance.StopAmbience ();
                     OnFinishLevel (TransitionSide.Fade);
                 });
             } else if (coffeeMainPuzzleIndex == 1) {
 
                 nextLevelToLoad = "CaminhoCasa";
+                MusicPlayer.Instance.StopAmbience ();
                 OnFinishLevel (TransitionSide.Fade);
             } else {
 

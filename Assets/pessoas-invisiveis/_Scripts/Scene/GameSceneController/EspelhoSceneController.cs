@@ -50,15 +50,13 @@ namespace PeixeAbissal.Scene.Morning {
         private void OnFirstPuzzleResolve () {
 
             Action AfterShowBalloon = delegate {
-                InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
 
-                    InputManager.ClearKeys ();
-                    balloonController.HideBalloon (ShowType.Fade, () => {
+                nextSceneButton.ShowObject (ShowType.Scale, 0.5f, Ease.OutBack, null);
+                nextSceneButton.OnMouseClick += () => {
 
-                        nextLevelToLoad = "CaminhoTrabalho";
-                        OnFinishLevel (TransitionSide.Fade);
-                    });
-                });
+                    nextLevelToLoad = "CaminhoTrabalho";
+                    OnFinishLevel (TransitionSide.Fade);
+                };
             };
             balloonController.ShowBalloon (ShowType.Fade, 2f, Ease.InOutSine, AfterShowBalloon);
         }
@@ -79,7 +77,7 @@ namespace PeixeAbissal.Scene.Morning {
             balloonController.ShowBalloon (ShowType.Fade, 1.25f, Ease.InOutSine, () => {
 
                 nextLevelToLoad = "CaminhoTrabalho";
-                nextSceneButton.ShowObject (ShowType.Scale, null);
+                nextSceneButton.ShowObject (ShowType.Scale, 0.5f, Ease.OutBack, null);
                 nextSceneButton.OnMouseClick += () => OnFinishLevel (TransitionSide.Fade);
             }, clairMaravilhosa);
         }
