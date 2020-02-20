@@ -13,8 +13,22 @@ namespace PeixeAbissal.Scene.Morning {
         public RectTransform foam;
         private string lastKeyString;
 
+        [SerializeField]
+        private GameObject keyButtons;
+
+        internal override void WillStart () {
+#if UNITY_ANDROID
+            keyButtons.SetActive (false);
+#endif
+        }
+
         internal override void OnStart () {
 
+#if UNITY_ANDROID
+            InputManager.RegisterAtKey (KeyCode.Mouse0, Input.Press, () => {
+                OnPressAndroid ();
+            });
+#else
             InputManager.RegisterAtKey (KeyCode.A, InputType.Press, () => {
                 OnPressAnyKey ("A");
             });
@@ -22,6 +36,7 @@ namespace PeixeAbissal.Scene.Morning {
             InputManager.RegisterAtKey (KeyCode.D, InputType.Press, () => {
                 OnPressAnyKey ("D");
             });
+#endif
         }
 
         private void OnPressAnyKey (string lastKey) {
@@ -29,10 +44,20 @@ namespace PeixeAbissal.Scene.Morning {
             if (lastKeyString != lastKey) {
 
                 AddPoints ();
-                brush.anchoredPosition = lastKeyString == "A" ? leftPos : rightPos;
-                foam.localScale *= 1.2f;
+                AnimateBrush ();
                 lastKeyString = lastKey;
             }
+        }
+
+        private void OnPressAndroid () {
+
+            AddPoints ();
+            AnimateBrush ();
+        }
+
+        private void AnimateBrush () {
+            brush.anchoredPosition = lastKeyString == "A" ? leftPos : rightPos;
+            foam.localScale *= 1.2f;
         }
     }
 }
