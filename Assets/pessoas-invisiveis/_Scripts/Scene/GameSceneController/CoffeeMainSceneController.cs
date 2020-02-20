@@ -40,7 +40,7 @@ namespace PeixeAbissal.Scene.Coffee {
             else
                 clair.sprite = claires[2];
 
-            coffeeMainPuzzleController.StartPuzzle (GetClientAmountPerPuzzle (), OnPuzzleComplete);
+            coffeeMainPuzzleController.StartPuzzle (coffeeMainPuzzleIndex, OnPuzzleComplete);
         }
 
         private void OnPuzzleComplete () {
@@ -65,16 +65,6 @@ namespace PeixeAbissal.Scene.Coffee {
             }
 
             coffeeMainPuzzleIndex += 1;
-        }
-
-        private int GetClientAmountPerPuzzle () {
-
-            if (coffeeMainPuzzleIndex == 3 || coffeeMainPuzzleIndex == 4)
-                return 4;
-            else if (coffeeMainPuzzleIndex == 1)
-                return 3;
-            else
-                return 1;
         }
     }
 }

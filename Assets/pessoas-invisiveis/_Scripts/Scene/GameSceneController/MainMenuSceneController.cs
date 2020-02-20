@@ -10,11 +10,14 @@ namespace PeixeAbissal.Scene.Menu {
         private Button playButton;
         [SerializeField]
         private Button creditsButton;
+        [SerializeField]
+        private Button quitButton;
 
         internal override void OnStart () {
 
             playButton.onClick.AddListener (OnPlayButtonClick);
             creditsButton.onClick.AddListener (OnCreditsButtonClick);
+            quitButton.onClick.AddListener (OnQuitButtonClick);
         }
 
         public void OnPlayButtonClick () {
@@ -25,6 +28,11 @@ namespace PeixeAbissal.Scene.Menu {
         public void OnCreditsButtonClick () {
 
             sceneManager.LoadScene ("Creditos", TransitionSide.Fade);
+        }
+
+        public void OnQuitButtonClick () {
+
+            Application.Quit ();
         }
     }
 }

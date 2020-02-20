@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
@@ -391,6 +391,9 @@ MonoBehaviour:
   - {fileID: 1720524957}
   - {fileID: 397322271}
   - {fileID: 0}
+  balloonSprites:
+  - {fileID: 21300000, guid: 60e7388ddc4aed84aafc298155f1ccd0, type: 3}
+  - {fileID: 21300000, guid: 7834a9314baed9e41bf6fa7708c60250, type: 3}
   serveButton: {fileID: 1243499985}
 --- !u!1 &461730094
 GameObject:
@@ -1667,7 +1670,7 @@ PrefabInstance:
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
@@ -1840,7 +1843,7 @@ PrefabInstance:
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
@@ -2611,7 +2614,7 @@ PrefabInstance:
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4826868296855523249, guid: 5701e30c796603241b64d90c6979c289,
         type: 3}

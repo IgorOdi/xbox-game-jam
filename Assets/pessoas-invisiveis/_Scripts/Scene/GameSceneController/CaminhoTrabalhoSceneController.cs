@@ -24,6 +24,8 @@ namespace PeixeAbissal.Scene.Street {
         [SerializeField]
         private StreetClairController clairController;
         [SerializeField]
+        private Transform revistaTarget;
+        [SerializeField]
         private GameObject zoomed;
         [SerializeField]
         private GameObject peopleSecondDay;
@@ -63,7 +65,8 @@ namespace PeixeAbissal.Scene.Street {
 
                     if (DayController.day == 0) {
                         clairController.SetClairLooking ();
-                        clairController.TurnClair (true);;
+                        clairController.TurnClair (true);
+                        revista.transform.position = revistaTarget.position;
                         revista.ShowObject (ShowType.Scale, () => {
                             revista.OnMouseClick += ZoomRevista;
                         });
@@ -92,14 +95,13 @@ namespace PeixeAbissal.Scene.Street {
             zoomed.GetComponent<CanvasGroup> ().DOFade (0, 1.5f);
 
             MusicPlayer.Instance.PlaySFX (skateSound, true);
-            gradient.DOAnchorPosX ((AREA_LIMIT - 1920) * -1, SCROLL_DURATION / 3)
+            gradient.DOAnchorPosX ((AREA_LIMIT - 1920/2) * -1, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine);
 
-            pathArea.DOAnchorPosX (AREA_LIMIT - 1920, SCROLL_DURATION / 3)
+            pathArea.DOAnchorPosX (AREA_LIMIT - 1920/2, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
-                    clairController.TurnClair (false);
                     MusicPlayer.Instance.StopSFX ();
                     OnFinishLevel (TransitionSide.Fade);
                 });

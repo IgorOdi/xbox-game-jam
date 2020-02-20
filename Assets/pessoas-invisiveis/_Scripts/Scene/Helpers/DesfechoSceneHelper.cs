@@ -19,5 +19,10 @@ namespace PeixeAbissal.Scene {
 
             FindObjectOfType<SceneManager> ().LoadScene ("Creditos", TransitionSide.Fade, 4f);
         }
+
+        public void LoadBackToMenu () {
+
+            FindObjectOfType<SceneManager> ().LoadScene ("MainMenu", TransitionSide.Fade, 4f);
+        }
     }
 }
