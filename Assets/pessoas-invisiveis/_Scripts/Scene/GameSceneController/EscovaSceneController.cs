@@ -25,7 +25,7 @@ namespace PeixeAbissal.Scene.Morning {
         internal override void OnStart () {
 
 #if UNITY_ANDROID
-            InputManager.RegisterAtKey (KeyCode.Mouse0, Input.Press, () => {
+            InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
                 OnPressAndroid ();
             });
 #else
