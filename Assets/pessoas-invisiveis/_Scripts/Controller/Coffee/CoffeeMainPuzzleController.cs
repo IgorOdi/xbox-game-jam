@@ -38,7 +38,8 @@ namespace PeixeAbissal.Controller.Coffee {
             for (int i = 0; i < clientAmount; i++) {
 
                 int index = i;
-                int balloonSpritesIndex = clientAmount <= 3 ? UnityEngine.Random.Range (0, 1) : 2;
+                int bSpriteSort = i >= 2 ? 0 : i;
+                int balloonSpritesIndex = clientAmount <= 3 ? bSpriteSort : 2;
                 balloonControllers[i].OnMouseClick += () => DestroyBalloon (index);
                 this.RunDelayed (i * clientInterval + clientDelay, () => balloonControllers[index].ShowBalloon (ShowType.Fade, 0.75f,
                     Ease.InOutSine, null, balloonSprites[balloonSpritesIndex]));

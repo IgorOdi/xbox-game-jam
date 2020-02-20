@@ -32,7 +32,7 @@ namespace PeixeAbissal.Scene.Coffee {
 
         internal override void WillStart () {
 
-            MusicPlayer.Instance.PlayMusic (cafeMusic);
+            MusicPlayer.Instance.PlayMusic (cafeMusic, true, false);
             MusicPlayer.Instance.PlayAmbience (cafeAmbience);
 
             if (DayController.day == 0)

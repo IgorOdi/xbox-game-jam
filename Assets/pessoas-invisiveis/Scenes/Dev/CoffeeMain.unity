@@ -384,15 +384,14 @@ MonoBehaviour:
   - {fileID: 1585585173}
   - {fileID: 1688034606}
   - {fileID: 1492938315}
-  - {fileID: 0}
   balloonControllers:
   - {fileID: 6745457037047519723}
   - {fileID: 1725798965}
   - {fileID: 1720524957}
   - {fileID: 397322271}
-  - {fileID: 0}
   balloonSprites:
   - {fileID: 21300000, guid: 60e7388ddc4aed84aafc298155f1ccd0, type: 3}
+  - {fileID: 21300000, guid: 4ef8147fa75dc464ab7591a2721c7830, type: 3}
   - {fileID: 21300000, guid: 7834a9314baed9e41bf6fa7708c60250, type: 3}
   serveButton: {fileID: 1243499985}
 --- !u!1 &461730094

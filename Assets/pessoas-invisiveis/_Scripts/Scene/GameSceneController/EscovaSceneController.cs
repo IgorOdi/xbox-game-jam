@@ -43,13 +43,18 @@ namespace PeixeAbissal.Scene.Morning {
 
             if (lastKeyString != lastKey) {
 
-                AddPoints ();
-                AnimateBrush ();
+                BrushTeeth ();
                 lastKeyString = lastKey;
             }
         }
 
         private void OnPressAndroid () {
+
+            BrushTeeth ();
+            lastKeyString = lastKeyString == "A" ? "D" : "A";
+        }
+
+        private void BrushTeeth () {
 
             AddPoints ();
             AnimateBrush ();
