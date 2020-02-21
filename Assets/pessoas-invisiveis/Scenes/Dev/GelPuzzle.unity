@@ -545,6 +545,11 @@ MonoBehaviour:
   - {fileID: 1679633527}
   - {fileID: 1999577140}
   - {fileID: 654251383}
+  ingredientsSound:
+  - {fileID: 8300000, guid: 78efaba9a687244a18e134511af9e777, type: 3}
+  - {fileID: 8300000, guid: 288afcc32ed6444e981b60ebeecc12d8, type: 3}
+  - {fileID: 8300000, guid: dea641003c24e41ee8dd671ea7fbb004, type: 3}
+  - {fileID: 8300000, guid: 15e8ed8cd8a0c4039bcde701420af27b, type: 3}
   lune: {fileID: 492803414}
 --- !u!1 &1101862802
 GameObject:

@@ -378,6 +378,9 @@ MonoBehaviour:
   - {fileID: 2742939803510026566, guid: 27e527912c476604b84dd8e34a192b3a, type: 3}
   - {fileID: 2742939803510026566, guid: 2d72a2a978113f24cb25db9c4ccfba25, type: 3}
   timeBarController: {fileID: 7}
+  genericPlace: {fileID: 8300000, guid: f2afbbbe171ba489f86836ef9740d152, type: 3}
+  completeSound: {fileID: 8300000, guid: e8dc6d44cbdcf4e7584b2dd63eca6067, type: 3}
+  negativeShort: {fileID: 8300000, guid: 2bceb80b1dfaa4d4e8bdf0194abb87b8, type: 3}
 --- !u!1 &456049290
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,8 +781,7 @@ MonoBehaviour:
   canvas: {fileID: 1893231128}
   coffeePreparePuzzleController: {fileID: 451267137}
   completeButton: {fileID: 1399153089}
-  genericPlace: {fileID: 8300000, guid: f2afbbbe171ba489f86836ef9740d152, type: 3}
-  completeSound: {fileID: 8300000, guid: e8dc6d44cbdcf4e7584b2dd63eca6067, type: 3}
+  coffeeMachine: {fileID: 8300000, guid: bdb5440698d83db4c899b784df8f3fc7, type: 3}
 --- !u!1 &1365445774
 GameObject:
   m_ObjectHideFlags: 0

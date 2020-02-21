@@ -1,4 +1,5 @@
 ﻿using System;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Controller.Coffee;
 using PeixeAbissal.Controller.Enum;
 using PeixeAbissal.Scene.Enum;
@@ -19,9 +20,7 @@ namespace PeixeAbissal.Scene.Coffee {
         private InteractableObject completeButton;
 
         [Header ("Audio"), SerializeField]
-        private AudioClip genericPlace;
-        [SerializeField]
-        private AudioClip completeSound;
+        private AudioClip coffeeMachine;
 
         internal override void OnStart () {
 
@@ -40,7 +39,11 @@ namespace PeixeAbissal.Scene.Coffee {
             coffeePreparePuzzleController.StartPuzzle (coffeePrepareType, () => {
 
                 completeButton.ShowObject (ShowType.Fade, 0f);
-                completeButton.OnMouseClick += backToCoffeeMain;
+                completeButton.OnMouseClick += () => {
+
+                    MusicPlayer.Instance.PlaySFX (coffeeMachine);
+                    backToCoffeeMain ();
+                };
             }, backToCoffeeMain);
         }
     }

@@ -12,12 +12,14 @@ namespace PeixeAbissal.Scene.Morning {
 
         [SerializeField]
         private InteractableObject sleepButton;
+        [Header ("Audio"), SerializeField]
+        private AudioClip cityFar;
         [SerializeField]
-        private AudioClip clairDeLune;
+        private AudioClip sleepButtonSound;
 
         internal override void WillStart () {
 
-            MusicPlayer.Instance.PlayMusic (clairDeLune);
+            MusicPlayer.Instance.PlayAmbience (cityFar);
         }
 
         internal override void OnStart () {
@@ -29,6 +31,7 @@ namespace PeixeAbissal.Scene.Morning {
             sleepButton.OnMouseClick += () => {
 
                 DayController.day += 1;
+                MusicPlayer.Instance.PlaySFX (sleepButtonSound);
                 OnFinishLevel (TransitionSide.Fade);
             };
         }

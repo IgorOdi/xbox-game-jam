@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.UI;
 using PeixeAbissal.UI.Enum;
 using PeixeAbissal.Utils;
@@ -29,6 +30,11 @@ namespace PeixeAbissal.Controller.Coffee {
         private int clientAmount;
         private Action onPuzzleComplete;
 
+        [SerializeField]
+        private AudioClip[] balloonPop;
+        [SerializeField]
+        private AudioClip serveCoffeeSound;
+
         public void StartPuzzle (int puzzleIndex, Action _onPuzzleComplete) {
 
             clientAmount = GetClientAmountPerPuzzle (puzzleIndex);
@@ -43,7 +49,8 @@ namespace PeixeAbissal.Controller.Coffee {
                 balloonControllers[i].OnMouseClick += () => DestroyBalloon (index);
                 this.RunDelayed (i * clientInterval + clientDelay, () => balloonControllers[index].ShowBalloon (ShowType.Fade, 0.75f,
                     Ease.InOutSine, null, balloonSprites[balloonSpritesIndex]));
-                this.RunDelayed (i * clientInterval + clientDelay, clientControllers[i].StartClient);
+                float clientPatience = GetClientPatiencePerPuzzle(puzzleIndex);
+                    this.RunDelayed (i * clientInterval + clientDelay, () => clientControllers[index].StartClient (clientPatience));
             }
             serveButton.SetInteractable (false);
             serveButton.OnMouseClick += ServeClient;
@@ -51,6 +58,8 @@ namespace PeixeAbissal.Controller.Coffee {
 
         private void DestroyBalloon (int index) {
 
+            int r = UnityEngine.Random.Range (0, balloonPop.Length);
+            MusicPlayer.Instance.PlaySFX (balloonPop[r]);
             serveButton.SetInteractable (true);
             destroyedBalloons += 1;
             Destroy (balloonControllers[index].gameObject);
@@ -58,6 +67,7 @@ namespace PeixeAbissal.Controller.Coffee {
 
         private void ServeClient () {
 
+            MusicPlayer.Instance.PlaySFX (serveCoffeeSound);
             clientControllers[clientsServed].ServeClient ();
             clientsServed += 1;
             if (destroyedBalloons <= clientsServed)
@@ -75,6 +85,16 @@ namespace PeixeAbissal.Controller.Coffee {
                 return 3;
             else
                 return 1;
+        }
+
+        private float GetClientPatiencePerPuzzle (int coffeeMainPuzzleIndex) {
+
+            if (coffeeMainPuzzleIndex == 3 || coffeeMainPuzzleIndex == 4)
+                return 1.5f;
+            else if (coffeeMainPuzzleIndex == 1)
+                return 2.5f;
+            else
+                return 3;
         }
     }
 }

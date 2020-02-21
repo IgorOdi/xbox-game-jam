@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Controller.DessingPuzzle;
 using PeixeAbissal.Controller.Enum;
 using PeixeAbissal.Input;
@@ -28,6 +29,9 @@ namespace PeixeAbissal.Scene.Morning {
         [SerializeField]
         private Sprite clairMaravilhosa;
 
+        [SerializeField]
+        private AudioClip buttonSound;
+
         private static bool madeTopete;
 
         internal override void WillStart () {
@@ -54,6 +58,7 @@ namespace PeixeAbissal.Scene.Morning {
                 nextSceneButton.ShowObject (ShowType.Scale, 0.5f, Ease.OutBack, null);
                 nextSceneButton.OnMouseClick += () => {
 
+                    MusicPlayer.Instance.PlaySFX (buttonSound);
                     nextLevelToLoad = "CaminhoTrabalho";
                     OnFinishLevel (TransitionSide.Fade);
                 };
@@ -78,7 +83,11 @@ namespace PeixeAbissal.Scene.Morning {
 
                 nextLevelToLoad = "CaminhoTrabalho";
                 nextSceneButton.ShowObject (ShowType.Scale, 0.5f, Ease.OutBack, null);
-                nextSceneButton.OnMouseClick += () => OnFinishLevel (TransitionSide.Fade);
+                nextSceneButton.OnMouseClick += () => {
+
+                    MusicPlayer.Instance.PlaySFX (buttonSound);
+                    OnFinishLevel (TransitionSide.Fade);
+                };
             }, clairMaravilhosa);
         }
     }

@@ -16,15 +16,19 @@ namespace PeixeAbissal.Controller.Coffee {
 
         private Coroutine patienceCoroutine;
 
-        public void StartClient () {
+        [SerializeField]
+        private AudioClip[] clientGrunt;
+
+        public void StartClient (float clientPatience) {
 
             gameObject.SetActive (true);
+            clientPatienceDuration = clientPatience;
             patienceCoroutine = StartCoroutine (ClientPatience ());
         }
 
         public void ServeClient () {
 
-            StopCoroutine (patienceCoroutine);
+            if (patienceCoroutine != null) StopCoroutine (patienceCoroutine);
             gameObject.SetActive (false);
         }
 
@@ -42,6 +46,8 @@ namespace PeixeAbissal.Controller.Coffee {
 
         private void SetAngryClient () {
 
+            int r = Random.Range (0, clientGrunt.Length);
+            MusicPlayer.Instance.PlaySFX (clientGrunt[r]);
             angryReaction.SetActive (true);
             fillBarController.gameObject.SetActive (false);
         }

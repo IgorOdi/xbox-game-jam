@@ -394,6 +394,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ef8147fa75dc464ab7591a2721c7830, type: 3}
   - {fileID: 21300000, guid: 7834a9314baed9e41bf6fa7708c60250, type: 3}
   serveButton: {fileID: 1243499985}
+  balloonPop:
+  - {fileID: 8300000, guid: d57605890eb48444c8da5327c8c58b3f, type: 3}
+  - {fileID: 8300000, guid: b2d895abe851a4cee8e7e450d10c0a95, type: 3}
+  - {fileID: 8300000, guid: 78700c940268d48a5be88791dd1e3654, type: 3}
+  - {fileID: 8300000, guid: be50274f741fc48b0bda5cf49fa42369, type: 3}
+  serveCoffeeSound: {fileID: 8300000, guid: f2afbbbe171ba489f86836ef9740d152, type: 3}
 --- !u!1 &461730094
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,11 +675,6 @@ MonoBehaviour:
   luneController: {fileID: 1054450193}
   cafeMusic: {fileID: 8300000, guid: d1e306e98e0f0407f814c3cd88a85bc0, type: 3}
   cafeAmbience: {fileID: 8300000, guid: 623a599a1f8774465a039d5d13e1ffb6, type: 3}
-  balloonPop:
-  - {fileID: 8300000, guid: d57605890eb48444c8da5327c8c58b3f, type: 3}
-  - {fileID: 8300000, guid: b2d895abe851a4cee8e7e450d10c0a95, type: 3}
-  - {fileID: 8300000, guid: 78700c940268d48a5be88791dd1e3654, type: 3}
-  - {fileID: 8300000, guid: be50274f741fc48b0bda5cf49fa42369, type: 3}
 --- !u!1 &1054450191
 GameObject:
   m_ObjectHideFlags: 0

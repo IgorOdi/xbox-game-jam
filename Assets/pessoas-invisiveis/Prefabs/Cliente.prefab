@@ -370,6 +370,10 @@ MonoBehaviour:
   fillBarController: {fileID: 8635631818791053812}
   clientPatienceDuration: 3
   angryReaction: {fileID: 8635631817955177005}
+  clientGrunt:
+  - {fileID: 8300000, guid: 3b890a60887b64b4fb965965446a1be3, type: 3}
+  - {fileID: 8300000, guid: b56ee35eb73cf4650bc2d51b4ecf4cac, type: 3}
+  - {fileID: 8300000, guid: 94157dc537cc04b4a87706f0b9a02da9, type: 3}
 --- !u!1 &8635631819520776471
 GameObject:
   m_ObjectHideFlags: 0

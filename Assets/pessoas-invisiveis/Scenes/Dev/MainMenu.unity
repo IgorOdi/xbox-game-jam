@@ -555,7 +555,8 @@ MonoBehaviour:
   playButton: {fileID: 1598713105}
   creditsButton: {fileID: 556804354}
   quitButton: {fileID: 969797258}
-  titleMusic: {fileID: 8300000, guid: c1425eb4125bc4bdba2028d9c19d688d, type: 3}
+  titleMusic: {fileID: 8300000, guid: 722a354e65cbe3f44bb96642a0eef38d, type: 3}
+  titleEnd: {fileID: 8300000, guid: 38a9c84db8d449a419d640c7d10c8b9f, type: 3}
 --- !u!1 &1100489366
 GameObject:
   m_ObjectHideFlags: 0

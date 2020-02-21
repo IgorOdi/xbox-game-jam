@@ -745,7 +745,9 @@ MonoBehaviour:
   peopleSecondDay: {fileID: 513570183}
   streetAmbience: {fileID: 8300000, guid: 59a53e4a0b3194bb2b54782041d23eae, type: 3}
   buySound: {fileID: 8300000, guid: a94752a65164047cab89dcf8e02b7e2a, type: 3}
-  skateSound: {fileID: 8300000, guid: ef0aae5955f8145f08d0b440914d0eed, type: 3}
+  skateSound: {fileID: 8300000, guid: f5d20dba9a208084c8f5a921fe0ee827, type: 3}
+  magazineOpenSound: {fileID: 8300000, guid: 14194cee77c3e4affb6c12ff057e1735, type: 3}
+  cafeDoorBell: {fileID: 8300000, guid: f842224e9b9bf1e4caaa6893a0baa437, type: 3}
 --- !u!1 &1019525686
 GameObject:
   m_ObjectHideFlags: 0

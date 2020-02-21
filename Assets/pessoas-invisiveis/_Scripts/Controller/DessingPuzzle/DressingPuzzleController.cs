@@ -1,6 +1,6 @@
 ﻿using System;
+using PeixeAbissal.Audio;
 using PeixeAbissal.Controller.Enum;
-using PeixeAbissal.UI;
 using UnityEngine;
 
 namespace PeixeAbissal.Controller.DessingPuzzle {
@@ -13,6 +13,9 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
         private GameObject capReflex, apronReflex;
         [SerializeField]
         private DressingClairController dressingClairController;
+
+        [SerializeField]
+        private AudioClip clothesOnSound;
 
         private int resolvedClothes;
         private const int MAX_CLOTHES = 2;
@@ -32,6 +35,7 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
 
                     if (dressingState == DressingState.APRON_ONLY) apronReflex.SetActive (true);
                     else if (dressingState == DressingState.CAP_ONLY) capReflex.SetActive (true);
+                    MusicPlayer.Instance.PlaySFX (clothesOnSound);
                     dressingClairController.SetClairClothes (dressingState);
                 });
             }

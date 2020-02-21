@@ -19,6 +19,8 @@ namespace PeixeAbissal.Scene.Morning {
         private AudioClip homeAmbience;
         [SerializeField]
         private AudioClip alarme;
+        [SerializeField]
+        private AudioClip alarmFeedback;
 
         internal override void WillStart () {
 
@@ -33,6 +35,7 @@ namespace PeixeAbissal.Scene.Morning {
             });
             InputManager.RegisterAtKey (KeyCode.Mouse0, InputType.Press, () => {
 
+                MusicPlayer.Instance.PlaySFX (alarmFeedback);
                 despertador.OnMouseClick += () => OnFinishLevel ();
             });
         }

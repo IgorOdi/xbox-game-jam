@@ -36,6 +36,10 @@ namespace PeixeAbissal.Scene.Street {
         private AudioClip buySound;
         [SerializeField]
         private AudioClip skateSound;
+        [SerializeField]
+        private AudioClip magazineOpenSound;
+        [SerializeField]
+        private AudioClip cafeDoorBell;
 
         private const float SCROLL_DURATION = 10;
         private const int AREA_LIMIT = -3840;
@@ -68,10 +72,15 @@ namespace PeixeAbissal.Scene.Street {
                         clairController.TurnClair (true);
                         revista.transform.position = revistaTarget.position;
                         revista.ShowObject (ShowType.Scale, () => {
-                            revista.OnMouseClick += ZoomRevista;
+                            revista.OnMouseClick += () => {
+
+                                MusicPlayer.Instance.PlaySFX (magazineOpenSound);
+                                ZoomRevista ();
+                            };
                         });
                     } else {
 
+                        MusicPlayer.Instance.PlaySFX (cafeDoorBell);
                         OnFinishLevel (TransitionSide.Fade);
                     }
                 });
@@ -95,14 +104,15 @@ namespace PeixeAbissal.Scene.Street {
             zoomed.GetComponent<CanvasGroup> ().DOFade (0, 1.5f);
 
             MusicPlayer.Instance.PlaySFX (skateSound, true);
-            gradient.DOAnchorPosX ((AREA_LIMIT - 1920/2) * -1, SCROLL_DURATION / 3)
+            gradient.DOAnchorPosX ((AREA_LIMIT - 1920 / 2) * -1, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine);
 
-            pathArea.DOAnchorPosX (AREA_LIMIT - 1920/2, SCROLL_DURATION / 3)
+            pathArea.DOAnchorPosX (AREA_LIMIT - 1920 / 2, SCROLL_DURATION / 3)
                 .SetEase (Ease.InOutSine)
                 .OnComplete (() => {
 
                     MusicPlayer.Instance.StopSFX ();
+                    MusicPlayer.Instance.PlaySFX (cafeDoorBell);
                     OnFinishLevel (TransitionSide.Fade);
                 });
         }

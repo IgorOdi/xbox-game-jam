@@ -1,4 +1,5 @@
-﻿using PeixeAbissal.Scene.Enum;
+﻿using PeixeAbissal.Audio;
+using PeixeAbissal.Scene.Enum;
 using PeixeAbissal.UI;
 using UnityEngine;
 
@@ -14,10 +15,12 @@ namespace PeixeAbissal.Scene.Gel {
 
         [SerializeField]
         private InteractableObject[] ingredients;
+        private int selectedIndex;
+
+        [SerializeField]
+        private AudioClip[] ingredientsSound;
         [SerializeField]
         private GameObject lune;
-
-        private int selectedIndex;
 
         internal override void WillStart () {
 
@@ -42,6 +45,7 @@ namespace PeixeAbissal.Scene.Gel {
             if (index == selectedIndex) {
 
                 selectedIndex += 1;
+                MusicPlayer.Instance.PlaySFX (ingredientsSound[index]);
                 ingredients[index].gameObject.SetActive (false);
             }
 

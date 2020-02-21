@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1893231128}
+  clairDeLune: {fileID: 8300000, guid: f7963f71d1e314a1fa9fede036c2097a, type: 3}
 --- !u!1 &1069682403
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83da489651d1c4f42bde671bc057be50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clairDeLune: {fileID: 0}
+  cityFar: {fileID: 0}
+  drumRoll: {fileID: 0}
+  plimSound: {fileID: 0}
 --- !u!1 &1954218465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1240,7 @@ MonoBehaviour:
     de Lune\u201D\r\ncomposto por Claude Debussy, executado por Laurens Goedhart,
     2011\r\n \r\n\"Monster\"\r\nComposto por Ian quint leisner\r\n \r\n<b><size=120%>Efeitos
     sonoros\r\nSound FX\r</b></size>\n \r\nObrigado aos usu\xE1rios do Freesound.org:\r\nThanks
-    all Freesound.org users:\r\n\r\nxenognosis\r\nunfa\r\nesperar\r\nfreefire66\r\njorickhoofd\r\nkyles\r\nrtfs\r\njarredgibb\r\nfrederic711\r\nonikage22\r\nkwahmah-02\r\nbtherad2000\r\nkmyers1316\r\n13gpanska-stanek-vojtech\r\nblouhond\r\neskimoneil\r\nalittlebitdrunkguy\r\nalivvie\r\ndreamstobecome\r\ngraham-makes\r\nkyles\r\njburunet\r\nsheyvan\r\npfranzen\r\ntkky\r\nrugmoth\r\nbigjoedrummer\r\nqubodup\r\nlipalearning\r\ntaranp\r\nmitsumangas\r\nnanakisan\r\n
+    all Freesound.org users:\r\n\r\nxenognosis\r\nunfa\r\nesperar\r\nfreefire66\r\njorickhoofd\r\nkyles\r\nrtfs\r\njarredgibb\r\nfrederic711\r\nonikage22\r\nkwahmah-02\r\nbtherad2000\r\nkmyers1316\r\n13gpanska-stanek-vojtech\r\nblouhond\r\neskimoneil\r\nalittlebitdrunkguy\r\nalivvie\r\ndreamstobecome\r\ngraham-makes\r\nkyles\r\njburunet\r\nsheyvan\r\npfranzen\r\ntkky\r\nrugmoth\r\nbigjoedrummer\r\nqubodup\r\nlipalearning\r\ntaranp\r\nmitsumangas\r\nnanakisan\r\nskirton101\nSeanSecret\nAudioRiggs\n
     \r\n<b><size=120%>Tipografia\r\ntypo\r</b></size>\n \r\nPangolin\r\nby Kevin Burke
     w"
   m_isRightToLeft: 0

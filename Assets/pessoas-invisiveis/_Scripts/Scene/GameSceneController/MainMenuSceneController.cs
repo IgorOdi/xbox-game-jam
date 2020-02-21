@@ -17,6 +17,8 @@ namespace PeixeAbissal.Scene.Menu {
 
         [SerializeField]
         private AudioClip titleMusic;
+        [SerializeField]
+        private AudioClip titleEnd;
 
         internal override void WillStart () {
 
@@ -37,6 +39,7 @@ namespace PeixeAbissal.Scene.Menu {
         public void OnPlayButtonClick () {
 
             DayController.ResetSave ();
+            MusicPlayer.Instance.PlayMusic (titleEnd, true, true, 0);
             sceneManager.LoadScene ("Acordar", TransitionSide.Fade);
         }
 

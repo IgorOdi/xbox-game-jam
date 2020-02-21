@@ -29,6 +29,13 @@ namespace PeixeAbissal.Controller.Coffee {
         private Action onPuzzleComplete;
         private CoffeePreparePuzzle puzzleType;
 
+        [Header ("Audio"), SerializeField]
+        private AudioClip genericPlace;
+        [SerializeField]
+        private AudioClip completeSound;
+        [SerializeField]
+        private AudioClip negativeShort;
+
         private const float INGREDIENTS_INTERVAL = 0.25f;
         private const int SLOTS = 3;
 
@@ -92,6 +99,7 @@ namespace PeixeAbissal.Controller.Coffee {
                         }
                     }
 
+                    MusicPlayer.Instance.PlaySFX (genericPlace);
                     placedIngredients.Add (originObject);
                     if (placedIngredients.Count >= SLOTS) {
 
@@ -115,6 +123,7 @@ namespace PeixeAbissal.Controller.Coffee {
 
                         placedIngredients.Clear ();
                         instantiatedIngredients[j].ResetPosition ();
+                        MusicPlayer.Instance.PlaySFX (negativeShort);
                     }
                     return;
                 }
@@ -123,7 +132,7 @@ namespace PeixeAbissal.Controller.Coffee {
             for (int i = 0; i < instantiatedIngredients.Length; i++) {
                 instantiatedIngredients[i].SetInteractable (false);
             }
-            //MusicPlayer.Instance.PlaySFX (completeSound);
+            MusicPlayer.Instance.PlaySFX (completeSound);
             onPuzzleComplete ();
             if (timeBarCoroutine != null) StopCoroutine (timeBarCoroutine);
         }
