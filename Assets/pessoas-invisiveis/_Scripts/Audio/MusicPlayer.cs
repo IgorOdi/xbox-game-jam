@@ -37,6 +37,7 @@ namespace PeixeAbissal.Audio {
                     });
             } else {
 
+                SetMusicVolume (1);
                 InternalPlay (0, musicClip, loop);
             }
         }
@@ -56,6 +57,7 @@ namespace PeixeAbissal.Audio {
                     });
             } else {
 
+                SetAmbienceVolume (1);
                 InternalPlay (1, ambienceClip, loop);
             }
         }
@@ -63,10 +65,10 @@ namespace PeixeAbissal.Audio {
         public void StopMusic (float fadeTime = 1f) {
 
             audioSource[0].DOFade (0, fadeTime).
-                OnComplete(() => {
+            OnComplete (() => {
 
-                    audioSource[0].Stop();
-                });
+                audioSource[0].Stop ();
+            });
         }
 
         public void StopAmbience () {

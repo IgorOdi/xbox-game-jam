@@ -30,8 +30,8 @@ namespace PeixeAbissal.Scene.Coffee {
 
         internal override void WillStart () {
 
-            MusicPlayer.Instance.PlayMusic (cafeMusic, false, false);
-            MusicPlayer.Instance.PlayAmbience (cafeAmbience, false, false);
+            MusicPlayer.Instance.PlayMusic (cafeMusic, true, false);
+            MusicPlayer.Instance.PlayAmbience (cafeAmbience, true, false);
 
             if (DayController.day == 0)
                 clair.sprite = claires[0];
