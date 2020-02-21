@@ -78,6 +78,7 @@ namespace PeixeAbissal.Scene.Morning {
 
         private void ShowClairMaravilhosa () {
 
+            dressingPuzzleController.ShowClairMaravilhosaOnMirror ();
             dressingPuzzleController.HideClothes (DressingState.APRON_ONLY);
             balloonController.ShowBalloon (ShowType.Fade, 1.25f, Ease.InOutSine, () => {
 

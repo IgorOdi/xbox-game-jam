@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1893231128}
+  gridLayoutGroup: {fileID: 1314974397}
   playButton: {fileID: 1598713105}
   creditsButton: {fileID: 556804354}
   quitButton: {fileID: 969797258}
@@ -769,7 +770,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 600, y: 100}
+  m_CellSize: {x: 700, y: 100}
   m_Spacing: {x: 0, y: 20}
   m_Constraint: 2
   m_ConstraintCount: 3

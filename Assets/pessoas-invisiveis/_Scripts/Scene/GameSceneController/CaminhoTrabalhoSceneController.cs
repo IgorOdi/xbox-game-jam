@@ -71,7 +71,7 @@ namespace PeixeAbissal.Scene.Street {
                         clairController.SetClairLooking ();
                         clairController.TurnClair (true);
                         revista.transform.position = revistaTarget.position;
-                        revista.ShowObject (ShowType.Scale, () => {
+                        revista.ShowObject (ShowType.Scale, 0.5f, Ease.OutBack, () => {
                             revista.OnMouseClick += () => {
 
                                 MusicPlayer.Instance.PlaySFX (magazineOpenSound);

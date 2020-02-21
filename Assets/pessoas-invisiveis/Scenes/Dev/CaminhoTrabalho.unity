@@ -850,16 +850,16 @@ RectTransform:
   m_GameObject: {fileID: 1144630791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.064557, y: 2.064557, z: 2.064557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1941408614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1243.023, y: -144.06839}
-  m_SizeDelta: {x: 110, y: 100}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 220, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1144630793
 Animator:
   serializedVersion: 3
@@ -1494,6 +1494,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScrollAreaRua
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542472064, guid: 976b778a5aeebf54ca37aaa66cfa0982, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -106.5
       objectReference: {fileID: 0}
     - target: {fileID: 5691855772384016575, guid: 976b778a5aeebf54ca37aaa66cfa0982,
         type: 3}

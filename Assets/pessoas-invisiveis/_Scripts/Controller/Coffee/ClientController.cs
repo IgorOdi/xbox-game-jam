@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using DG.Tweening;
 using PeixeAbissal.Audio;
 using PeixeAbissal.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PeixeAbissal.Controller.Coffee {
 
@@ -23,13 +25,23 @@ namespace PeixeAbissal.Controller.Coffee {
 
             gameObject.SetActive (true);
             clientPatienceDuration = clientPatience;
-            patienceCoroutine = StartCoroutine (ClientPatience ());
+            fillBarController.ChangePoints (0);
+            GetComponentInChildren<Image> ().DOFade (1, 0.25f)
+                .From (0)
+                .OnComplete (() => {
+                    patienceCoroutine = StartCoroutine (ClientPatience ());
+                });
         }
 
         public void ServeClient () {
 
             if (patienceCoroutine != null) StopCoroutine (patienceCoroutine);
-            gameObject.SetActive (false);
+            fillBarController.gameObject.SetActive (false);
+            GetComponentInChildren<Image> ().DOFade (0, 1f)
+                .From (1)
+                .OnComplete (() => {
+                    gameObject.SetActive (false);
+                });
         }
 
         private IEnumerator ClientPatience () {

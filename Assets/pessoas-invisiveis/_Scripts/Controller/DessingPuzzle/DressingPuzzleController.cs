@@ -50,5 +50,10 @@ namespace PeixeAbissal.Controller.DessingPuzzle {
 
             dressingClairController.SetClairClothes (dressingState);
         }
+
+        public void ShowClairMaravilhosaOnMirror () {
+
+            apronReflex.SetActive (true);
+        }
     }
 }

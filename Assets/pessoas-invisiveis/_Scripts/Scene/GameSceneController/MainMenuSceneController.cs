@@ -9,6 +9,9 @@ namespace PeixeAbissal.Scene.Menu {
     public class MainMenuSceneController : SceneController {
 
         [SerializeField]
+        private GridLayoutGroup gridLayoutGroup;
+
+        [SerializeField]
         private Button playButton;
         [SerializeField]
         private Button creditsButton;
@@ -23,7 +26,8 @@ namespace PeixeAbissal.Scene.Menu {
         internal override void WillStart () {
 
             InputManager.ClearKeys ();
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_WEBGL
+            gridLayoutGroup.spacing = new Vector2 (0, 60);
             quitButton.gameObject.SetActive (false);
 #endif
         }
